@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: argo-ci
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
+spec:
+  tls:
+  - hosts:
+    - ci-webhook.apps.argoproj.io
+  rules:
+  - host: ci-webhook.apps.argoproj.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: argoci
+          servicePort: 80

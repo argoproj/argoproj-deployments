@@ -1,3 +1,6 @@
+resources:
+- base/argo-ui-ingress.yaml
+
 bases:
 - github.com/argoproj/argo//manifests/cluster-install
 - github.com/argoproj/argo-ci//manifests?ref=manifests
@@ -5,8 +8,6 @@ bases:
 patchesStrategicMerge:
 - overlays/production/argo-ci-deployment.yaml
 - overlays/production/workflow-controller-config-map.yaml
-- overlays/production/argo-ci-service.yaml
-- overlays/production/argo-ui-service.yaml
 
 imageTags:
 - name: argoproj/argoui
