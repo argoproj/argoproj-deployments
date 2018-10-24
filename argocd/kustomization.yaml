@@ -3,3 +3,4 @@ bases:
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
+namespace: argocd

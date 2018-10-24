@@ -15,3 +15,4 @@ imageTags:
   newTag: v2.2.1
 - name: argoproj/argoci
   newTag: v1.0.0-alpha2
+namespace: argoci
