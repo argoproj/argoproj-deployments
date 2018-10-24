@@ -4,6 +4,7 @@ bases:
 
 patchesStrategicMerge:
 - overlays/production/argo-ci-deployment.yaml
+- overlays/production/workflow-controller-config-map.yaml
 
 imageTags:
 - name: argoproj/argoui
