@@ -1,5 +1,6 @@
 resources:
 - base/argo-ui-ingress.yaml
+- base/argo-ci-ingress.yaml
 
 bases:
 - github.com/argoproj/argo//manifests/cluster-install
