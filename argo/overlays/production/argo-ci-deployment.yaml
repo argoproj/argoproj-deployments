@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: argoci
+spec:
+    spec:
+      containers:
+        - name: ci
+          env:
+          - name: IN_CLUSTER
+            value: "true"
+          - name: NAMESPACE
+            value: argoci-workflows
+          - name: ARGO_CI_IMAGE
+            value: "argoproj/argoci:v1.0.0-alpha2"
+          - name: CONTROLLER_INSTANCE_ID
+            value: argo-ci
