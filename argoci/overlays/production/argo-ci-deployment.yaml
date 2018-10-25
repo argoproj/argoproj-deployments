@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: argoci
 spec:
+  template:
     spec:
       containers:
         - name: ci
