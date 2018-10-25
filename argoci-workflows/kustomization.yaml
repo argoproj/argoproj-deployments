@@ -1,0 +1,3 @@
+resources:
+- limit-range.yaml
+- resource-quota.yaml

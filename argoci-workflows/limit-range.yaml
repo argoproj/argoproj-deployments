@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: ci-workflows-limit
+spec:
+  limits:
+  - default:
+      memory: 1024Mi
+      cpu: 0.5
+    defaultRequest:
+      memory: 512Mi
+      cpu: 0.2
+    type: Container
