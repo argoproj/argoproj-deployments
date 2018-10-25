@@ -15,6 +15,6 @@ spec:
           - name: NAMESPACE
             value: argoci
           - name: ARGO_CI_IMAGE
-            value: "argoproj/argoci:v1.0.0-alpha2"
+            value: "argoproj/argoci:v0.0.1-2480db0"
           - name: CONTROLLER_INSTANCE_ID
             value: argo-ci

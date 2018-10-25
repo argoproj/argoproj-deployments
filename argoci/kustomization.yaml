@@ -1,6 +1,7 @@
 resources:
 - base/argo-ui-ingress.yaml
 - base/argo-ci-ingress.yaml
+- base/argo-ci-cm.yaml
 
 bases:
 - github.com/argoproj/argo//manifests/cluster-install
@@ -18,5 +19,5 @@ imageTags:
 - name: argoproj/workflow-controller
   newTag: v2.2.1
 - name: argoproj/argoci
-  newTag: v1.0.0-alpha2
+  newTag: v0.0.1-2480db0
 namespace: argoci
