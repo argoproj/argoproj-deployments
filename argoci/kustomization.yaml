@@ -13,7 +13,7 @@ patchesStrategicMerge:
 
 imageTags:
 - name: argoproj/argoui
-  newTag: v2.2.1
+  newTag: v2.2.1-2539322
 - name: argoproj/argoexec
   newTag: v2.2.1
 - name: argoproj/workflow-controller
