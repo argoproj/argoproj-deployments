@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: dogs-com-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-issuer
     kind: ClusterIssuer
     namespace: cert-manager
   commonName: ci.apps.argoproj.io
