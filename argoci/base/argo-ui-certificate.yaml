@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: argo-ui-cert
 spec:
-  secretName: dogs-com-tls
+  secretName: argo-ui-tls
   issuerRef:
     name: letsencrypt-issuer
     kind: ClusterIssuer
