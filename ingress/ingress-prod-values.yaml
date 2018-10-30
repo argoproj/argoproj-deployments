@@ -1,0 +1,16 @@
+controller:
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 11
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+revisionHistoryLimit: 2
+
+defaultBackend:
+
+  resources:
+  requests:
+    cpu: 0.5
+    memory: 1024Mi
