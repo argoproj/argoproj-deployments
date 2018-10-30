@@ -8,7 +8,7 @@ data:
       config:
         clientID: fb563b3a8dd7ea52f683
         clientSecret: 1fcbf1f3fee74ef7dc3942be63f2a5226c62e649
-  url: https://argo-cd-demo.argoproj.io
+  url: https://cd.apps.argoproj.io
 kind: ConfigMap
 metadata:
   name: argocd-cm
