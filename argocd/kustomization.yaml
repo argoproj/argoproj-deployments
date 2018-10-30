@@ -1,5 +1,6 @@
 resources:
 - base/argo-cd-certificate.yaml
+- base/http01-ingress.yaml
 
 bases:
 - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.10.0
