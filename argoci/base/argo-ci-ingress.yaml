@@ -7,8 +7,6 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/app-root: "/"
 spec:
-  tls:
-  - secretName: argo-ui-tls
   rules:
   - host: ci-webhook.apps.argoproj.io
     http:
