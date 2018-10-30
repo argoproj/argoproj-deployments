@@ -13,5 +13,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: argo-ui
+          serviceName: argocd-server
           servicePort: 80
