@@ -1,4 +1,5 @@
 resources:
+- base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
 - base/http01-ingress.yaml
 

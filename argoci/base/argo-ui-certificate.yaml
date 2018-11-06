@@ -5,9 +5,8 @@ metadata:
 spec:
   secretName: argo-ui-tls
   issuerRef:
-    name: letsencrypt-issuer
-    kind: ClusterIssuer
-    namespace: cert-manager
+    name: argo-ci-issuer
+    kind: Issuer
   commonName: ci.apps.argoproj.io
   dnsNames:
   - ci.apps.argoproj.io

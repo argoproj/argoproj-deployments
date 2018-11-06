@@ -5,9 +5,8 @@ metadata:
 spec:
   secretName: argocd-secret
   issuerRef:
-    name: letsencrypt-issuer
-    kind: ClusterIssuer
-    namespace: cert-manager
+    name: argo-cd-issuer
+    kind: Issuer
   commonName: cd.apps.argoproj.io
   dnsNames:
   - cd.apps.argoproj.io

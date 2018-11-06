@@ -1,0 +1,11 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Issuer
+metadata:
+  name: argo-ci-issuer
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: amatyushentsev@gmail.com
+    privateKeySecretRef:
+      name: letsencrypt
+    http01: {}
