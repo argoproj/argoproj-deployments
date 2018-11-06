@@ -1,0 +1,5 @@
+resources:
+- base/argocd.yaml
+- base/argoci.yaml
+- base/cert-manager.yaml
+- base/nginx-ingress.yaml
