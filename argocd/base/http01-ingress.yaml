@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/app-root: "/"
 spec:
   rules:
-  - host: dummy.com
+  - host: cd.apps.argoproj.io
     http:
       paths:
       - path: /
