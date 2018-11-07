@@ -11,3 +11,5 @@ spec:
     path: stable/cert-manager
     repoURL: https://github.com/helm/charts
     targetRevision: HEAD
+syncPolicy:
+    automated: {}
