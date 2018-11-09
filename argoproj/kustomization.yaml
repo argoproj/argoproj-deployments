@@ -1,4 +1,5 @@
 resources:
+- base/nginx-ns.yaml
 - base/argocd.yaml
 - base/argoci.yaml
 - base/cert-manager.yaml
