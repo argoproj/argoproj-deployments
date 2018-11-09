@@ -11,5 +11,5 @@ spec:
     path: argocd
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
-syncPolicy:
+  syncPolicy:
     automated: {}
