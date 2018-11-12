@@ -1,4 +1,4 @@
-# # argoproj-deployments
+# argoproj-deployments
 
 This repository contains definition of Argoproj CI/CD infrastructure:
 
