@@ -7,7 +7,3 @@ resources:
 - base/argoci.yaml
 - base/cert-manager.yaml
 - base/nginx-ingress.yaml
-
-- base/cert-clusterissuers-crd.yaml
-- base/cert-crd.yaml
-- base/cert-issuer-crd.yaml
