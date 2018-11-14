@@ -7,7 +7,7 @@ data:
       name: GitHub
       config:
         clientID: fb563b3a8dd7ea52f683
-        clientSecret: 1fcbf1f3fee74ef7dc3942be63f2a5226c62e649
+        clientSecret: $dex.github.clientSecret
   url: https://cd.apps.argoproj.io
 kind: ConfigMap
 metadata:
