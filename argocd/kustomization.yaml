@@ -4,7 +4,7 @@ resources:
 - base/http01-ingress.yaml
 
 bases:
-- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.0
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.1
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
