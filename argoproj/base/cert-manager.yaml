@@ -6,6 +6,7 @@ spec:
   destination:
     namespace: cert-manager
     server: https://kubernetes.default.svc
+    targetVersion: a52c24dfa5e9b8dbdc5ff5092a6fef864792cfeb
   project: default
   source:
     path: stable/cert-manager
