@@ -7,3 +7,4 @@ resources:
 - base/argoci.yaml
 - base/cert-manager.yaml
 - base/nginx-ingress.yaml
+- base/kind-operator.yaml
