@@ -10,4 +10,5 @@ bases:
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
 - overlays/production/argocd-server-service.yaml
+- overlays/production/argocd-server-deploy.yaml
 namespace: argocd
