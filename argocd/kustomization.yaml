@@ -2,10 +2,12 @@ resources:
 - base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
 - base/http01-ingress.yaml
+- base/argo-cd-ui-ingress.yaml
 
 bases:
 - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v0.11.1
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
+- overlays/production/argocd-server-service.yaml
 namespace: argocd
