@@ -12,5 +12,3 @@ spec:
     path: stable/nginx-ingress
     repoURL: https://github.com/helm/charts
     targetRevision: HEAD
-  syncPolicy:
-    automated: {}
