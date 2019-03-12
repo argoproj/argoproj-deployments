@@ -17,8 +17,8 @@ patchesStrategicMerge:
 
 images:
   - name: argoproj/argocd
-    newTag: v0.12.0-rc2
+    newTag: v0.12.0-rc4
   - name: argoproj/argocd-ui
-    newTag: v0.12.0-rc2
+    newTag: v0.12.0-rc4
 
 namespace: argocd
