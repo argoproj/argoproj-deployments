@@ -8,17 +8,11 @@ resources:
 - base/argo-cd-ui-ingress.yaml
 
 bases:
-- github.com/argoproj/argo-cd//manifests/cluster-install?ref=master
+- github.com/argoproj/argo-cd//manifests/cluster-install?ref=release-0.12
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
 - overlays/production/argocd-server-service.yaml
 - overlays/production/argocd-server-deploy.yaml
-
-images:
-  - name: argoproj/argocd
-    newTag: v0.12.0-rc4
-  - name: argoproj/argocd-ui
-    newTag: v0.12.0-rc4
 
 namespace: argocd
