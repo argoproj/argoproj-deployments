@@ -11,3 +11,5 @@ spec:
     path: .
     repoURL: https://github.com/argoproj/argo-cd-hello-world-config
     targetRevision: HEAD
+    ksonnet:
+      environment: preprod
