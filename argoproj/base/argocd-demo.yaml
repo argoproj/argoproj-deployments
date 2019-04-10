@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd-demo
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd-hello-world
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/argoproj/argo-cd-hello-world-config
+    targetRevision: HEAD
