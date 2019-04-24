@@ -8,7 +8,7 @@ resources:
 - base/argo-cd-ui-ingress.yaml
 
 bases:
-- github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-0.12
+- github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.0
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
