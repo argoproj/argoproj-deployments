@@ -10,7 +10,7 @@ data:
         clientSecret: $dex.github.clientSecret
   url: https://cd.apps.argoproj.io
   resource.customizations: |
-    argoproj.io/Rollout: |
+    argoproj.io/Rollout:
       health.lua: |
         hs = {}
         if obj.status ~= nil then
