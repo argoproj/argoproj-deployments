@@ -6,6 +6,7 @@ resources:
 - base/argo-cd-certificate.yaml
 - base/http01-ingress.yaml
 - base/argo-cd-ui-ingress.yaml
+- base/jenkins-ingress.yaml
 
 bases:
 - github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.0
