@@ -1,2 +1,3 @@
-master:
-  imageTag: "2.175"
+jenkins:
+  master:
+    imageTag: "2.175"
