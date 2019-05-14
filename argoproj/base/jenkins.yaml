@@ -4,8 +4,8 @@ metadata:
   name: jenkins
 spec:
   source:
-    repoURL: 'https://github.com/helm/charts'
-    path: stable/jenkins
+    path: jenkins
+    repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
