@@ -6,7 +6,7 @@ resources:
 - base/argo-ui-certificate.yaml
 
 bases:
-- github.com/argoproj/argo//manifests/cluster-install?ref=v2.2.1
+- github.com/argoproj/argo//manifests/cluster-install?ref=v2.4.0-rc1
 - github.com/argoproj/argo-ci//manifests?ref=manifests
 
 patchesStrategicMerge:
