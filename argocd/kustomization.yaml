@@ -17,8 +17,3 @@ patchesStrategicMerge:
 - overlays/production/argocd-server-deploy.yaml
 
 namespace: argocd
-
-images:
-  - name: argoproj/argocd
-    newName: alexmt/argocd
-    newTag: v1.2.0-249ce93
