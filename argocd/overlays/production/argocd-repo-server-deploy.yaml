@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-repo-server
+spec:
+  revisionHistoryLimit: 2
+  template:
+    spec:
+      volumes:
+      - name: custom-tools
+        emptyDir: {}
+      initContainers:
+      - name: download-tools
+        image: alexmt/argocd-flux:latest
+        command: [sh, -c]
+        args:
+        - cp /usr/local/bin/argocd-flux-plugin /custom-tools/argocd-flux-plugin
+        volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
