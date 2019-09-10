@@ -9,8 +9,9 @@ spec:
       containers:
       - name: argocd-repo-server
         volumeMounts:
-        - mountPath: /custom-tools
+        - mountPath: /usr/local/bin/argocd-flux-plugin
           name: custom-tools
+          subPath: argocd-flux-plugin
       volumes:
       - name: custom-tools
         emptyDir: {}
