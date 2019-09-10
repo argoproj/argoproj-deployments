@@ -20,3 +20,15 @@ spec:
         - argocd-redis-ha-announce-2:26379
         - --sentinelmaster
         - argocd
+      volumes:
+      - name: custom-tools
+        emptyDir: {}
+      initContainers:
+      - name: download-tools
+        image: alexmt/argocd-flux:latest
+        command: [sh, -c]
+        args:
+        - cp /usr/local/bin/argocd-flux-plugin /custom-tools/argocd-flux-plugin
+        volumeMounts:
+        - mountPath: /custom-tools
+          name: custom-tools
