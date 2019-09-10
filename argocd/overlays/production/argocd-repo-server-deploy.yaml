@@ -6,6 +6,12 @@ spec:
   revisionHistoryLimit: 2
   template:
     spec:
+      containers:
+      - name: argocd-repo-server
+        volumeMounts:
+        - mountPath: /usr/local/bin/kustomize
+          name: custom-tools
+          subPath: kustomize
       volumes:
       - name: custom-tools
         emptyDir: {}
