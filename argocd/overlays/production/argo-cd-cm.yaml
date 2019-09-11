@@ -3,7 +3,7 @@ data:
   configManagementPlugins: |
     - name: flux
       generate:
-        command: [argocd-flux-plugin, .]
+        command: [argocd-flux-plugin, . -p $GIT_PATH]
   dex.config: |
     connectors:
     - type: github
