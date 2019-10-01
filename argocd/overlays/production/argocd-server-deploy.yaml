@@ -8,7 +8,6 @@ spec:
       containers:
       - name: argocd-server
         command:
-        - uid_entrypoint.sh
         - argocd-server
         - --insecure
         - --staticassets
