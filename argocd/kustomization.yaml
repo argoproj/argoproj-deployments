@@ -9,7 +9,7 @@ resources:
 - base/jenkins-ingress.yaml
 
 bases:
-- github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.2
+- github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.3
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
