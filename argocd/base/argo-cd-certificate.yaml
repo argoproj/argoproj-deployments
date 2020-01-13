@@ -10,9 +10,3 @@ spec:
   commonName: cd.apps.argoproj.io
   dnsNames:
   - cd.apps.argoproj.io
-  acme:
-    config:
-    - http01:
-        ingress: http01
-      domains:
-      - cd.apps.argoproj.io

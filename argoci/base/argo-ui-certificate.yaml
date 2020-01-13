@@ -10,9 +10,3 @@ spec:
   commonName: ci.apps.argoproj.io
   dnsNames:
   - ci.apps.argoproj.io
-  acme:
-    config:
-    - http01:
-        ingress: argo-ui
-      domains:
-      - ci.apps.argoproj.io
