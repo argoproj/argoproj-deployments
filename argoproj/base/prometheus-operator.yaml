@@ -19,6 +19,10 @@ spec:
     - /spec/validation
     kind: CustomResourceDefinition
   - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
     jsonPointers:
     - /webhooks
-    kind: CustomResourceDefinition
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    jsonPointers:
+    - /webhooks
