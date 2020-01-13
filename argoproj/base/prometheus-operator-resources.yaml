@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus-operator-resources
+spec:
+  destination:
+    namespace: prometheus-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: prometheus-operator-resources
+    repoURL: https://github.com/argoproj/argoproj-deployments
+    targetRevision: HEAD
