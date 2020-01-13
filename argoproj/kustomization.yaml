@@ -1,6 +1,5 @@
 resources:
 - base/ingress-ns.yaml
-- base/cert-manager-ns.yaml
 - base/argoci-ns.yaml
 - base/argoci-workflows-ns.yaml
 - base/argocd.yaml
