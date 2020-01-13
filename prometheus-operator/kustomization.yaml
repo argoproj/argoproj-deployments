@@ -1,0 +1,5 @@
+resources:
+- ./resources/upstream.yaml
+- ./resources/argocd-metrics-servicemonitor.yaml
+- ./resources/argocd-server-metrics-servicemonitor.yaml
+- ./resources/argocd-repo-server-metrics-servicemonitor.yaml

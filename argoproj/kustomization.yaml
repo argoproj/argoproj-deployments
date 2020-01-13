@@ -9,4 +9,4 @@ resources:
 - base/jenkins.yaml
 - base/prometheus-operator-ns.yaml
 - base/prometheus-operator.yaml
-- base/prometheus-operator-resources.yaml
+

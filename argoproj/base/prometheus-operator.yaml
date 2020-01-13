@@ -5,9 +5,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://kubernetes-charts.storage.googleapis.com/'
-    targetRevision: 8.5.7
-    chart: prometheus-operator
+    path: prometheus-operator
+    repoURL: https://github.com/argoproj/argoproj-deployments
+    targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: prometheus-operator
