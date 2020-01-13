@@ -10,3 +10,8 @@ spec:
   source:
     path: cert-manager
     repoURL: https://github.com/argoproj/argoproj-deployments
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    jsonPointers:
+    - /status
+    kind: CustomResourceDefinition
