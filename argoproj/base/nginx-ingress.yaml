@@ -9,6 +9,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: stable/nginx-ingress
-    repoURL: https://github.com/helm/charts
-    targetRevision: HEAD
+    repoURL: 'https://kubernetes-charts.storage.googleapis.com/'
+    targetRevision: 1.29.0
+    chart: nginx-ingress
