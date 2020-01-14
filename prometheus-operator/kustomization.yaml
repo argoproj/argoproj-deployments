@@ -3,3 +3,13 @@ resources:
 - ./resources/argocd-metrics-servicemonitor.yaml
 - ./resources/argocd-server-metrics-servicemonitor.yaml
 - ./resources/argocd-repo-server-metrics-servicemonitor.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    grafana_dashboard: argocd
+
+configMapGenerator:
+- name: argocd-dashboard-cm
+  files:
+    - dashboard.json
