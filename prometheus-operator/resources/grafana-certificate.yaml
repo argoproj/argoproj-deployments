@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: grafana-cert
+spec:
+  secretName: grafana-tls
+  issuerRef:
+    name: grafana-issuer
+    kind: Issuer
+  commonName: grafana.apps.argoproj.io
+  dnsNames:
+  - grafana.apps.argoproj.io

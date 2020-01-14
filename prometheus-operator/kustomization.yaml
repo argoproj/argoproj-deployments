@@ -3,6 +3,9 @@ resources:
 - ./resources/argocd-metrics-servicemonitor.yaml
 - ./resources/argocd-server-metrics-servicemonitor.yaml
 - ./resources/argocd-repo-server-metrics-servicemonitor.yaml
+- ./resources/grafana-certificate.yaml
+- ./resources/grafana-ingress.yaml
+- ./resources/grafana-issuer.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
@@ -13,3 +16,14 @@ configMapGenerator:
 - name: argocd-dashboard-cm
   files:
     - dashboard.json
+patchesJson6902:
+- target:
+    name: prometheus-operator-grafana
+    namespace: prometheus-operator
+    group: 
+    version: v1
+    kind: Secret
+  path: overlays/prometheus-operator-grafana-secret.yaml
+    
+patchesStrategicMerge:
+- overlays/prometheus-operator-grafana-cm.yaml
