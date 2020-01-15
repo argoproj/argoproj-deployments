@@ -10,11 +10,13 @@ resources:
 
 bases:
 - github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.4
+- github.com/argoproj-labs/argocd-notifications//manifests/base?ref=release-0.3
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
 - overlays/production/argocd-server-service.yaml
 - overlays/production/argocd-server-deploy.yaml
 - overlays/production/argocd-repo-server-deploy.yaml
+- overlays/production/argocd-notifications-cm.yaml
 
 namespace: argocd

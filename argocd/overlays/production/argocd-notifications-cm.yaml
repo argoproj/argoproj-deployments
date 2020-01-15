@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+data:
+  config.yaml: |
+    triggers:
+      - name: on-sync-status-unknown
+        enabled: true
+      - name: on-sync-failed
+        enabled: true
+      - name: on-sync-succeeded
+        enabled: true
+      - name: on-health-degraded
+        enabled: true
+    context:
+      argocdUrl: https://cdp.apps.argoproj.io
