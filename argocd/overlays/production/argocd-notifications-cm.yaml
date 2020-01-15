@@ -14,4 +14,4 @@ data:
       - name: on-health-degraded
         enabled: true
     context:
-      argocdUrl: https://cdp.apps.argoproj.io
+      argocdUrl: https://cd.apps.argoproj.io
