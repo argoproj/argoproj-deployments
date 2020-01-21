@@ -20,3 +20,8 @@ patchesStrategicMerge:
 - overlays/production/argocd-notifications-cm.yaml
 
 namespace: argocd
+
+images:
+- name: argoprojlabs/argocd-notifications
+  newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
+  newTag: 0.4.0-906043d9
