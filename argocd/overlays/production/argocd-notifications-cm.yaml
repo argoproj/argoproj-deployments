@@ -13,5 +13,12 @@ data:
         enabled: true
       - name: on-health-degraded
         enabled: true
+      - name: sample-custom-trigger
+        condition: app.metadata.labels.sample_trigger == 'true'
+        template: sample-custom-template
+    templates:
+      - name: sample-custom-template
+        title: The custom template title
+        body: The custom template body
     context:
       argocdUrl: https://cd.apps.argoproj.io
