@@ -7,10 +7,9 @@ resources:
 - base/http01-ingress.yaml
 - base/argo-cd-ui-ingress.yaml
 - base/jenkins-ingress.yaml
-
-bases:
 - github.com/argoproj/argo-cd//manifests/ha/cluster-install?ref=release-1.4
 - github.com/argoproj-labs/argocd-notifications//manifests/base?ref=release-0.3
+
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
@@ -22,6 +21,9 @@ patchesStrategicMerge:
 namespace: argocd
 
 images:
+- name: argoproj/argocd
+  newName: docker.pkg.github.com/argoproj/argocd/argo-cd
+  newTag: 1.5.0-8e703dbe
 - name: argoprojlabs/argocd-notifications
   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
   newTag: 0.5.0-6c75688f
