@@ -8,7 +8,7 @@ resources:
 - base/argo-cd-ui-ingress.yaml
 - base/jenkins-ingress.yaml
 - github.com/argoproj/argo-cd//manifests/ha/cluster-install
-- github.com/argoproj-labs/argocd-notifications//manifests/controller
+- github.com/argoproj-labs/argocd-notifications//manifests/bot
 
 
 patchesStrategicMerge:
