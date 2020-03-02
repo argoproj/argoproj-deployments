@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: argo-cd-notifications-bot-cert
+spec:
+  secretName: argocd-notifications-secret
+  issuerRef:
+    name: argo-cd-issuer
+    kind: Issuer
+  commonName: argocd-notifications.apps.argoproj.io
+  dnsNames:
+  - argocd-notifications.apps.argoproj.io

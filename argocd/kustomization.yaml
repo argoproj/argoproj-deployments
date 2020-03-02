@@ -8,6 +8,7 @@ resources:
 - base/argo-cd-ui-ingress.yaml
 - base/jenkins-ingress.yaml
 - base/argo-cd-notifications-bot-ingress.yaml
+- base/argo-cd-notifications-bot-certificate.yaml
 - github.com/argoproj/argo-cd//manifests/ha/cluster-install
 - github.com/argoproj-labs/argocd-notifications//manifests/bot
 
