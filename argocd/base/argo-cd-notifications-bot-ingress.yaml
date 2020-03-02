@@ -18,4 +18,4 @@ spec:
       - path: /
         backend:
           serviceName: argocd-notifications-bot
-          servicePort: http
+          servicePort: 80
