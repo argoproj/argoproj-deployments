@@ -17,6 +17,10 @@ data:
       config:
         clientID: fb563b3a8dd7ea52f683
         clientSecret: $dex.github.clientSecret
+        orgs:
+        - name: argoproj
+          teams:
+          - argo-cd-admins
 kind: ConfigMap
 metadata:
   name: argocd-cm
