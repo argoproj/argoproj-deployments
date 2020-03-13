@@ -2,9 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-notifications-cm
-data:
   config.yaml: |
     triggers:
+      # enable sync status notifications triggers
       - name: on-sync-status-unknown
         enabled: true
       - name: on-sync-failed
@@ -13,12 +13,33 @@ data:
         enabled: true
       - name: on-health-degraded
         enabled: true
-      - name: sample-custom-trigger
-        condition: app.metadata.labels.sample_trigger == 'true'
-        template: sample-custom-template
+
+      # github commit status triggers
+      - name: sync-operation-failed
+        condition: app.status.operationState.phase in ['Error', 'Failed']
+        template: sync-operation-status-change
+      - name: sync-operation-succeeded
+        condition: app.status.operationState.phase in ['Succeeded']
+        template: sync-operation-status-change
+      - name: sync-operation-running
+        condition: app.status.operationState.phase in ['Running']
+        template: sync-operation-status-change
+
     templates:
-      - name: sample-custom-template
-        title: The custom template title
-        body: The custom template body
+      - name: sync-operation-status-change
+        webhook:
+          github:
+            method: POST
+            path: /repos/{{call .repo.FullNameByRepoURL .app.spec.source.repoURL}}/statuses/{{.app.status.operationState.operation.sync.revision}}
+            body: |
+              {
+                {{if eq .app.status.operationState.phase "Running"}} "state": "pending"{{end}}
+                {{if eq .app.status.operationState.phase "Succeeded"}} "state": "success"{{end}}
+                {{if eq .app.status.operationState.phase "Error"}} "state": "error"{{end}}
+                {{if eq .app.status.operationState.phase "Failed"}} "state": "error"{{end}},
+                "description": "ArgoCD",
+                "target_url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                "context": "continuous-delivery/{{.app.metadata.name}}"
+              }
     context:
       argocdUrl: https://cd.apps.argoproj.io
