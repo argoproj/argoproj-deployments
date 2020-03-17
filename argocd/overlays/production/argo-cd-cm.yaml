@@ -1,5 +1,6 @@
 apiVersion: v1
 data:
+  admin.enabled: 'false'
   statusbadge.enabled: 'true'
   users.anonymous.enabled: 'true'
   ga.trackingid: 'UA-105170809-6'
