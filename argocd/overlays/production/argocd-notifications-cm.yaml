@@ -6,10 +6,8 @@ data:
   config.yaml: |
     subscriptions:
     - selector: github.argocd-notifications.argoproj.io=true
-
       recipients:
       - webhook:github
-
       triggers:
       - on-sync-status-unknown
       - sync-operation-failed
