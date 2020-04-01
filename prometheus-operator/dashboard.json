@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 31,
-  "iteration": 1585702817497,
+  "iteration": 1585703296633,
   "links": [],
   "panels": [
     {
@@ -416,25 +415,19 @@
             "max": 100,
             "min": 0,
             "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "#299c46",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 70
-                },
-                {
-                  "color": "#d44a3a",
-                  "value": 90
-                }
-              ]
-            },
+            "thresholds": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ],
             "unit": "none"
           },
+          "override": {},
           "overrides": [],
           "values": false
         },
@@ -442,7 +435,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.6.2",
+      "pluginVersion": "6.5.2",
       "repeatDirection": "h",
       "targets": [
         {
@@ -3469,14 +3462,13 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 22,
+  "schemaVersion": 21,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": true,
           "text": "Prometheus",
           "value": "Prometheus"
         },
@@ -3495,7 +3487,7 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -3523,7 +3515,7 @@
         "auto_count": 30,
         "auto_min": "1m",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "auto",
           "value": "$__auto_interval_interval"
         },
@@ -4640,7 +4632,7 @@
     ]
   },
   "timezone": "",
-  "title": "ArgoCD Copy",
+  "title": "ArgoCD",
   "uid": "LCAgc9rWz",
-  "version": 4
+  "version": 2
 }
