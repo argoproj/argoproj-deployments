@@ -20,7 +20,7 @@
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -34,7 +34,7 @@
     },
     {
       "content": "![argoimage](https://avatars1.githubusercontent.com/u/30269780?s=110&v=4)",
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 4,
         "w": 2,
@@ -58,7 +58,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": null,
+      "datasource": "$Source",
       "format": "dtdurations",
       "gauge": {
         "maxValue": 100,
@@ -139,7 +139,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": null,
+      "datasource": "$Source",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -225,7 +225,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": null,
+      "datasource": "$Source",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -311,7 +311,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": null,
+      "datasource": "$Source",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -388,7 +388,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -458,7 +458,7 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -555,7 +555,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -580,7 +580,7 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -691,7 +691,7 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -789,7 +789,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -806,7 +806,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -907,7 +907,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -1003,7 +1003,7 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1020,7 +1020,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1124,7 +1124,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "tsbuckets",
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 7,
         "w": 24,
@@ -1183,7 +1183,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1282,7 +1282,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1376,7 +1376,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Source",
       "decimals": null,
       "fill": 1,
       "fillGradient": 0,
@@ -1468,7 +1468,7 @@
     },
     {
       "collapsed": true,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1482,7 +1482,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1577,7 +1577,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1675,7 +1675,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1773,7 +1773,7 @@
     },
     {
       "collapsed": true,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1787,7 +1787,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1881,7 +1881,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -1976,7 +1976,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -2071,7 +2071,7 @@
     },
     {
       "collapsed": true,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2085,7 +2085,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 8,
@@ -2171,7 +2171,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2257,7 +2257,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2358,7 +2358,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "decimals": null,
           "fill": 1,
           "gridPos": {
@@ -2451,7 +2451,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2541,7 +2541,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2631,7 +2631,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2728,7 +2728,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2817,7 +2817,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2906,7 +2906,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -2995,7 +2995,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "gridPos": {
             "h": 9,
@@ -3085,7 +3085,7 @@
     },
     {
       "collapsed": true,
-      "datasource": null,
+      "datasource": "$Source",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3099,7 +3099,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3189,7 +3189,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3279,7 +3279,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3370,7 +3370,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Source",
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -3491,7 +3491,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": null,
+        "datasource": "$Source",
         "definition": "label_values(kube_pod_info, namespace)",
         "hide": 0,
         "includeAll": true,
@@ -3614,7 +3614,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": null,
+        "datasource": "$Source",
         "definition": "label_values(argocd_cluster_info, server)",
         "hide": 0,
         "includeAll": true,
