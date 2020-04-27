@@ -33,7 +33,7 @@ namespace: argocd
 images:
 - name: argoproj/argocd
   newName: docker.pkg.github.com/argoproj/argo-cd/argocd
-  newTag: 1.6.0-8a77075c
+  newTag: 1.6.0-d77072b5
 - name: argoprojlabs/argocd-notifications
   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
   newTag: 0.7.0-a4b66bf8
