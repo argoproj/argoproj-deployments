@@ -3,6 +3,7 @@ resources:
 - ./resources/argocd-metrics-servicemonitor.yaml
 - ./resources/argocd-server-metrics-servicemonitor.yaml
 - ./resources/argocd-repo-server-metrics-servicemonitor.yaml
+- ./resources/argocd-notifications-controller-metrics-servicemonitor.yaml
 - ./resources/grafana-certificate.yaml
 - ./resources/grafana-ingress.yaml
 - ./resources/grafana-issuer.yaml
