@@ -9,8 +9,8 @@ resources:
 - base/jenkins-ingress.yaml
 - base/argo-cd-notifications-bot-ingress.yaml
 - base/argo-cd-notifications-bot-certificate.yaml
-- github.com/argoproj/argo-cd//manifests/ha/cluster-install
-- github.com/argoproj-labs/argocd-notifications//manifests/bot
+- https://github.com/argoproj/argo-cd/manifests/ha/cluster-install
+- https://github.com/argoproj-labs/argocd-notifications/manifests/bot
 
 
 patchesStrategicMerge:
