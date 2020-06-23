@@ -36,4 +36,4 @@ images:
   newTag: 1.7.0-24acaefc
 - name: argoprojlabs/argocd-notifications
   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
-  newTag: 0.7.0-4275eb9a
+  newTag: 0.7.0-582ae886
