@@ -1,6 +1,0 @@
-apiVersion: v1
-data:
-  externalUiUrl: http://ci.apps.argoproj.io
-kind: ConfigMap
-metadata:
-  name: argo-ci-settings
