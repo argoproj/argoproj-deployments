@@ -1,6 +1,6 @@
 dependencies:
 - name: jenkins
-  repository: https://kubernetes-charts.storage.googleapis.com
+  repository: https://charts.helm.sh/stable
   version: 1.1.15
-digest: sha256:6231293989721322bbbf1ae87e1e83c88e73edb92754f75fc68b36cc36dc92df
-generated: 2019-05-13T21:46:19.619092-07:00
+digest: sha256:9030f7e7e7d47c858cb7d8e06ee63599aed93f7fbb0b8395a18c04ac2a9d1548
+generated: "2020-11-06T13:34:07.125105-08:00"
