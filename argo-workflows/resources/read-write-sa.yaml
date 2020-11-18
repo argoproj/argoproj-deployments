@@ -1,7 +1,7 @@
 kind: ServiceAccount
 apiVersion: v1
 metadata:
-  name: admin
+  name: read-write
   annotations:
     workflows.argoproj.io/rbac-rule: "'intuit' in groups"
     workflows.argoproj.io/rbac-rule-precedence: "1"
