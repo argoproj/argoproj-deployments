@@ -22,7 +22,7 @@ data:
       clientSecret:
         name: argo-server-sso
         key: clientSecret
-      redirectUrl: https://argo-server.apps.argoproj.io/oauth2/callback
+      redirectUrl: https://workflows.apps.argoproj.io/oauth2/callback
       scopes:
        - groups
       rbac:
