@@ -5,7 +5,6 @@ resources:
   - https://github.com/argoproj/argo-events/manifests/namespace-install
   - https://raw.githubusercontent.com/argoproj/argo-events/master/examples/eventbus/native.yaml
   - calendar-eventsource.yaml
-  - log-sensor.yaml
   - workflow-sensor.yaml
 
 namespace: argo
