@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: github-push
+  name: github-event
 spec:
   entrypoint: main
   serviceAccountName: workflow
