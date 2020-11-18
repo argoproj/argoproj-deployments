@@ -5,9 +5,16 @@ metadata:
 spec:
   entrypoint: main
   serviceAccountName: workflow
+  arguments:
+    parameters:
+      - name: message
   templates:
     - name: main
+      inputs:
+        parameters:
+          - name: message
+            value: "{{workflow.parameters.message}}"
       container:
         image: alpine:3.6
         command: [ sh, -c ]
-        args: [ "github push" ]
+        args: [ "echo", "{{inputs.parameters.message}}" ]

@@ -4,10 +4,10 @@ metadata:
   name: event-consumer
 spec:
   event:
-    selector: metadata["x-github-event"] == ["push"]
+    selector: metadata["x-github-event"] != nil
   submit:
     workflowTemplateRef:
-      name: my-wf-tmple
+      name: github-event
     arguments:
       parameters:
         - name: message
