@@ -6,6 +6,5 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-events/master/examples/eventbus/native.yaml
   - calendar-eventsource.yaml
   - workflow-sensor.yaml
-  - log-sensor.yaml
 
 namespace: argo

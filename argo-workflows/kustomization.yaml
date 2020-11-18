@@ -16,6 +16,11 @@ resources:
   - resources/read-write-role.yaml
   - resources/read-write-sa.yaml
   - resources/read-write-rolebinding.yaml
+  - resources/submit-workflow-template-role.yaml
+  - resources/github.com-sa.yaml
+  - resources/github.com-rolebinding.yaml
+  - resources/github-push-workflowtemplate.yaml
+  - resources/event-consumer-workfloweventbinding.yaml
 
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml

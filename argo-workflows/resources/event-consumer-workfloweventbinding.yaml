@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowEventBinding
+metadata:
+  name: event-consumer
+spec:
+  event:
+    selector: metadata["x-github-event"] == ["push"]
+  submit:
+    workflowTemplateRef:
+      name: my-wf-tmple
+    arguments:
+      parameters:
+        - name: message
+          valueFrom:
+            event: payload.message

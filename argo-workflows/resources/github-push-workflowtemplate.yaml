@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: github-push
+spec:
+  entrypoint: main
+  serviceAccountName: workflow
+  templates:
+    - name: main
+      container:
+        image: alpine:3.6
+        command: [ sh, -c ]
+        args: [ "github push" ]
