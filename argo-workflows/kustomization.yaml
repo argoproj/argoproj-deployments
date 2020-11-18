@@ -7,7 +7,14 @@ resources:
   - resources/argo-server-ingress.yaml
 
 patchesStrategicMerge:
-  - resources/workflow-controller-configmap.yaml
-  - resources/argo-server-role.yaml
+  - overlays/workflow-controller-configmap.yaml
+  - overlays/argo-server-role.yaml
+patchesJson6902:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: argo-server
+    path: ./overlays/argo-server-deployment.yaml
 
 namespace: argo
