@@ -7,7 +7,6 @@ resources:
   - resources/argo-server-ingress.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
-  - resources/canary-cronworkflow.yaml
   - resources/coinflip-workflowtemplate.yaml
   - resources/coinflip-cronworkflow.yaml
   - resources/workflow-role.yaml
