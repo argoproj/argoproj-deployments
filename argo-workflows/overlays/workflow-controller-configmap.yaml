@@ -15,7 +15,7 @@ data:
           name: argo-artifacts-minio
           key: secretkey
     sso:
-      issuer: https://api.github.com
+      issuer: https://github.com/login/oauth
       clientId:
         name: argo-server-sso
         key: clientID
