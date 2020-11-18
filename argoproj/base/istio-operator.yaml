@@ -15,3 +15,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: istio-operator
   project: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

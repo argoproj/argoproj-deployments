@@ -12,3 +12,6 @@ spec:
     repoURL: 'https://kubernetes-charts.storage.googleapis.com/'
     targetRevision: 1.29.0
     chart: nginx-ingress
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
