@@ -1,7 +1,0 @@
-kind: ServiceAccount
-apiVersion: v1
-metadata:
-  name: read-only
-  annotations:
-    workflows.argoproj.io/rbac-rule: "true"
-    workflows.argoproj.io/rbac-rule-precedence: "0"

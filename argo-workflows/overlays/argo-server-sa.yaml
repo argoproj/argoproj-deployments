@@ -1,0 +1,6 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: argo-server
+  annotations:
+    workflows.argoproj.io/rbac-rule: "true"
