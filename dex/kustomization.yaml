@@ -5,7 +5,6 @@ commonLabels:
   "app.kubernetes.io/part-of": "dex"
 
 resources:
-  - dex-cm.yaml
   - dex-role.yaml
   - dex-sa.yaml
   - dex-rb.yaml
