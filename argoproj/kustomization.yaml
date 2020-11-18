@@ -1,6 +1,7 @@
 resources:
 - base/argo-workflows.yaml
-- base/argocd.yaml
+- base/argo-cd.yaml
+- base/argo-rollouts.yaml
 - base/cert-manager.yaml
 - base/nginx-ingress.yaml
 - base/jenkins.yaml

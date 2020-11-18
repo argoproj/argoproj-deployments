@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-rollouts
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/argo-rollouts
+    path: manifests/cluster-install
+    targetRevision: v0.10.0
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-rollouts
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
