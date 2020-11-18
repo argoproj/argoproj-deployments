@@ -9,6 +9,7 @@ metadata:
   name: coinflip
 spec:
   entrypoint: coinflip
+  serviceAccountName: workflow
   templates:
     - name: coinflip
       steps:

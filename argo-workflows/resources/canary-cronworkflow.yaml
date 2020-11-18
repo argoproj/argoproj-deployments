@@ -13,7 +13,7 @@ spec:
       monitoring: "true"
   workflowSpec:
     entrypoint: main
-    serviceAccountName: argo
+    serviceAccountName: workflow
     templates:
       - name: main
         container:

@@ -10,9 +10,9 @@ resources:
 - resources/canary-cronworkflow.yaml
 - resources/coinflip-workflowtemplate.yaml
 - resources/coinflip-cronworkflow.yaml
-- resources/argo-sa.yaml
 - resources/workflow-role.yaml
-- resources/argo-rolebinding.yaml
+- resources/workflow-sa.yaml
+- resources/workflow-rolebinding.yaml
 
 patchesStrategicMerge:
 - overlays/workflow-controller-configmap.yaml
