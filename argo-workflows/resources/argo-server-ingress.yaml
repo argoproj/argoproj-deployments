@@ -14,4 +14,4 @@ spec:
       - path: /
         backend:
           serviceName: argo-server
-          servicePort: http
+          servicePort: 2746
