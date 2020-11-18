@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: istio-operator
+spec:
+  source:
+    repoURL: https://github.com/istio/istio
+    path: manifests/charts/istio-operator
+    targetRevision: release-1.7
+    helm:
+      parameters:
+      - name: enableCRDTemplates
+        value: 'true'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-operator
+  project: default
