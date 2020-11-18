@@ -6,7 +6,7 @@ spec:
   dependencies:
     - name: test-dep
       eventSourceName: calendar
-      eventName: example
+      eventName: example-with-interval
   triggers:
     - template:
         name: argo-workflow-trigger
