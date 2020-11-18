@@ -11,3 +11,6 @@ spec:
     path: prometheus-operator-resources
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
