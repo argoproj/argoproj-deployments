@@ -19,7 +19,7 @@ resources:
   - resources/submit-workflow-template-role.yaml
   - resources/github.com-sa.yaml
   - resources/github.com-rolebinding.yaml
-  - resources/github-push-workflowtemplate.yaml
+  - resources/github-event-workflowtemplate.yaml
   - resources/event-consumer-workfloweventbinding.yaml
 
 patchesStrategicMerge:
