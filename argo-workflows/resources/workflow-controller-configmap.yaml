@@ -2,6 +2,18 @@ apiVersion: v1
 data:
   # https://github.com/settings/applications/1416526
   config: |
+    artifactRepository:
+      s3:
+        bucket: my-bucket
+        keyPrefix: prefix/in/bucket     #optional
+        endpoint: 104.155.140.57:9000        #AWS => s3.amazonaws.com; GCS => storage.googleapis.com
+        insecure: true                  #omit for S3/GCS. Needed when minio runs without TLS
+        accessKeySecret:                #omit if accessing via AWS IAM
+          name: argo-artifacts-minio
+          key: accesskey
+        secretKeySecret:                #omit if accessing via AWS IAM
+          name: argo-artifacts-minio
+          key: secretkey
     sso:
       issuer: https://api.github.com
       clientId:
