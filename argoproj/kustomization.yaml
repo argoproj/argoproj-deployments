@@ -9,3 +9,4 @@ resources:
 - base/prometheus-operator.yaml
 - base/istio-operator.yaml
 - base/istio-controlplane.yaml
+- base/istio-addons.yaml
