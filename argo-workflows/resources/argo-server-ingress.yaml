@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: argo-server
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
+spec:
+  rules:
+  - host: argo-server.apps.argoproj.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: argo-server
+          servicePort: http
