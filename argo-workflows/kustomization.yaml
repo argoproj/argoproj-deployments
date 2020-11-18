@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - resources/argo-ns.yaml
   - https://github.com/argoproj/argo/manifests/namespace-install
+  - resources/workflow-controller-configmap.yaml
+  - resources/argo-server-role.yaml
   - resources/argo-server-ingress.yaml
 
 namespace: argo
