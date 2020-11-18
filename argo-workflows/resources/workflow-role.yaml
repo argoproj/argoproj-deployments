@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: workflow-role
+  name: workflow
 rules:
   # pod get/watch is used to identify the container IDs of the current pod
   # pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
