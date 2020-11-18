@@ -10,7 +10,7 @@ resources:
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
   - overlays/argo-server-role.yaml
-  - 
+
 patchesJson6902:
   - target:
       version: v1
