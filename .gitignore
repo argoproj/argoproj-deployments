@@ -1,1 +1,2 @@
 /.idea/
+/argo-workflows/resources/argo-server-sso-secret.yaml

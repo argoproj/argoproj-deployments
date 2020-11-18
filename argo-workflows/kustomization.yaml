@@ -5,6 +5,8 @@ resources:
   - resources/argo-ns.yaml
   - https://github.com/argoproj/argo/manifests/namespace-install
   - resources/argo-server-ingress.yaml
+  - resources/argo-workflows-certificate.yaml
+  - resources/argo-workflows-issuer.yaml
   - resources/canary-cronworkflow.yaml
   - resources/coinflip-workflowtemplate.yaml
   - resources/coinflip-cronworkflow.yaml

@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: argo-workflows-cert
+spec:
+  secretName: argo-workflows-secret
+  issuerRef:
+    name: argo-cd-issuer
+    kind: Issuer
+  commonName: cd.apps.argoproj.io
+  dnsNames:
+  - cd.apps.argoproj.io
