@@ -3,5 +3,7 @@ kind: Kustomization
 
 resources:
   - https://github.com/argoproj/argo-events/manifests/namespace-install
+  - calendar-eventsource.yaml
+  - log-sensor.yaml
 
 namespace: argo
