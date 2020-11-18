@@ -5,8 +5,8 @@ metadata:
 spec:
   secretName: argo-workflows-secret
   issuerRef:
-    name: argo-cd-issuer
+    name: argo-workflows-issuer
     kind: Issuer
-  commonName: cd.apps.argoproj.io
+  commonName: workflows.apps.argoproj.io
   dnsNames:
-  - cd.apps.argoproj.io
+  - workflows.apps.argoproj.io
