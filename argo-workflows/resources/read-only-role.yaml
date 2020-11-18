@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: argo-server-role
+  name: read-only-role
 rules:
   - apiGroups:
       - ''
@@ -17,14 +17,6 @@ rules:
       - secrets
     verbs:
       - get
-  - apiGroups:
-      - ''
-    resources:
-      - secrets
-    verbs:
-      - create
-    resourceNames:
-      - sso
   - apiGroups:
       - ''
     resources:

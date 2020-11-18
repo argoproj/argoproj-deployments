@@ -14,17 +14,19 @@ data:
         secretKeySecret:                #omit if accessing via AWS IAM
           name: argo-artifacts-minio
           key: secretkey
-    #sso:
-    #  issuer: https://api.github.com
-    #  clientId:
-    #    name: argo-server-sso
-    #    key: clientID
-    #  clientSecret:
-    #    name: argo-server-sso
-    #    key: clientSecret
-    #  redirectUrl: https://argo-server.apps.argoproj.io/oauth2/callback
-    #  scopes:
-    #  - groups
+    sso:
+      issuer: https://api.github.com
+      clientId:
+        name: argo-server-sso
+        key: clientID
+      clientSecret:
+        name: argo-server-sso
+        key: clientSecret
+      redirectUrl: https://argo-server.apps.argoproj.io/oauth2/callback
+      scopes:
+       - groups
+      rbac:
+        enabled: true
     containerRuntimeExecutor: pns
     workflowDefaults:
       spec:

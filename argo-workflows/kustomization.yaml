@@ -10,6 +10,9 @@ resources:
   - resources/canary-cronworkflow.yaml
   - resources/coinflip-workflowtemplate.yaml
   - resources/coinflip-cronworkflow.yaml
+  - resources/read-only-role.yaml
+  - resources/read-only-sa.yaml
+  - resources/read-only-rolebinding.yaml
 
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
