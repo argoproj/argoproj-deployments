@@ -1,5 +1,6 @@
 resources:
 - base/ingress-ns.yaml
+- base/argo-workflows.yaml
 - base/argocd.yaml
 - base/cert-manager.yaml
 - base/nginx-ingress.yaml
