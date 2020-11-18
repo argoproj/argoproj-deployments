@@ -5,10 +5,12 @@ resources:
   - resources/argo-ns.yaml
   - https://github.com/argoproj/argo/manifests/namespace-install
   - resources/argo-server-ingress.yaml
+  - resources/canary-cronworkflow.yaml
 
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
   - overlays/argo-server-role.yaml
+  - 
 patchesJson6902:
   - target:
       version: v1

@@ -28,6 +28,7 @@ data:
     containerRuntimeExecutor: pns
     workflowDefaults:
       spec:
+        activeDeadlineSeconds: 30
         ttlStrategy:
           secondsAfterCompletion: 600
 kind: ConfigMap

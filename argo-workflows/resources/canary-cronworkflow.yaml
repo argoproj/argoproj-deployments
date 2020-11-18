@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: canary
+  namespace: argo
+  labels:
+    canary: "true"
+  annotations:
+    description: This cron workflow creates canaries which we monitor
+spec:
+  schedule: '* * * * *'
+  workflowMetadata:
+    labels:
+      monitoring: "true"
+  workflowSpec:
+    entrypoint: main
+    serviceAccountName: argo
+    templates:
+      - name: main
+        container:
+          name: main
+          image: 'docker/whalesay:latest'
+          command:
+            - echo
+          args:
+            - ok
