@@ -20,6 +20,10 @@ resources:
   - resources/github.com-rolebinding.yaml
   - resources/github-event-workflowtemplate.yaml
   - resources/event-consumer-workfloweventbinding.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
 
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
