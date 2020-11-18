@@ -6,6 +6,8 @@ resources:
   - https://github.com/argoproj/argo/manifests/namespace-install
   - resources/argo-server-ingress.yaml
   - resources/canary-cronworkflow.yaml
+  - resources/coinflip-workflowtemplate.yaml
+  - resources/coinflip-cronworkflow.yaml
 
 patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
