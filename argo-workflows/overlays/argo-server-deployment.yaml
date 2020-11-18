@@ -1,4 +1,8 @@
 - op: add
   path: /spec/template/spec/containers/0/args/-
   value:
-    --auth-mode=sso,client
+    --auth-mode=sso
+- op: add
+  path: /spec/template/spec/containers/0/args/-
+  value:
+    --auth-mode=client

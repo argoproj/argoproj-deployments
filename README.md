@@ -9,4 +9,5 @@ This repository contains definition of Argoproj CI/CD infrastructure:
 - dex [![App Status](https://cd.apps.argoproj.io/api/badge?name=dex)](https://cd.apps.argoproj.io/applications/dex)
 
 
+* [Argo Workflows Github Webhook](https://github.com/argoproj/argo/settings/hooks/263222342)
 * [DEX OpenID](https://dex.apps.argoproj.io/dex/.well-known/openid-configuration)
