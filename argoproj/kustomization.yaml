@@ -5,7 +5,7 @@ resources:
 - base/argo-cd.yaml
 - base/argo-rollouts.yaml
 - base/cert-manager.yaml
-- base/nginx-ingress.yaml
+- base/ingress-nginx.yaml
 - base/jenkins.yaml
 - base/prometheus-operator.yaml
 - base/istio-operator.yaml
