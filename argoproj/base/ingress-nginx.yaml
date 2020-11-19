@@ -17,7 +17,12 @@ spec:
           autoscaling:
             enabled: true
             minReplicas: 3
-            maxReplicas: 6
+            maxReplicas: 8
+  ignoreDifferences:
+  - group: autoscaling
+    kind: HorizontalPodAutoscaler
+    jsonPointers:
+    - /spec/metrics
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
