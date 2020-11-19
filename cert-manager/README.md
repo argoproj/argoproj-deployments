@@ -1,5 +1,5 @@
 # Installation
 
 Manifests copied from: 
-https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html
+https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests
 
