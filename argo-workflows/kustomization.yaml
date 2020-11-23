@@ -29,6 +29,7 @@ patchesStrategicMerge:
   - overlays/workflow-controller-configmap.yaml
   - overlays/argo-server-role.yaml
   - overlays/argo-server-sa.yaml
+  - overlays/argo-server-deploy.yaml
 
 patchesJson6902:
   - path: ./overlays/argo-server-deployment.yaml

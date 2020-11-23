@@ -32,6 +32,7 @@ rules:
       - ''
     resources:
       - events
+      - patch
     verbs:
       - watch
   - apiGroups:

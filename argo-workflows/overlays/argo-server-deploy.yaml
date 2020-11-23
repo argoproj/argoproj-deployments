@@ -1,0 +1,7 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: argo-server
+spec:
+  replicas: 2
+
