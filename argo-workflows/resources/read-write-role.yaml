@@ -54,5 +54,6 @@ rules:
       - get
       - list
       - watch
+      - patch
       - create
       - update
