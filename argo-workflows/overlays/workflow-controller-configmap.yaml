@@ -14,10 +14,10 @@ data:
         secretKeySecret:                #omit if accessing via AWS IAM
           name: argo-artifacts-minio
           key: secretkey
-      links:
-      - name: Give feedback on the v3 UI
-        scope: chat
-        url: https://docs.google.com/document/d/1VHwp53QMPoUVACiyWFXriktxwSznEW1ZsQqJHrZklO8/edit?usp=sharing
+    links:
+    - name: Give feedback on the v3 UI
+      scope: chat
+      url: https://docs.google.com/document/d/1VHwp53QMPoUVACiyWFXriktxwSznEW1ZsQqJHrZklO8/edit?usp=sharing
     sso:
       issuer: https://dex.apps.argoproj.io/dex
       clientId:
