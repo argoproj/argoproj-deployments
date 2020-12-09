@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-notifications-controller
+spec:
+  template:
+    spec:
+      containers:
+      - name: argocd-notifications-controller
+        command:
+        - /app/argocd-notifications
+        - controller
+        - --app-label-selector=!testing
