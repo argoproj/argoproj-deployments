@@ -57,3 +57,5 @@ rules:
       - patch
       - create
       - update
+      - delete
+      - deletecollection
