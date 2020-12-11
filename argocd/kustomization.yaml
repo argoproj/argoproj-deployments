@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
 - base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
-- base/http01-ingress.yaml
 - base/argo-cd-ui-ingress.yaml
 - base/jenkins-ingress.yaml
 - base/argo-cd-notifications-bot-ingress.yaml
