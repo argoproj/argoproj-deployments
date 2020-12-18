@@ -12,4 +12,5 @@ spec:
   triggers:
     - template:
         name: log-trigger
-        log: {}
+        log:
+          intervalSeconds: 1
