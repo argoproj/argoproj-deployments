@@ -6,11 +6,11 @@ data:
   context: |
     argocdUrl: https://cd.apps.argoproj.io
 
-  defaultTriggers:
-  - on-sync-status-unknown
-  - on-sync-failed
-  - on-sync-succeeded
-  - on-health-degraded
+  defaultTriggers: |
+    - on-sync-status-unknown
+    - on-sync-failed
+    - on-sync-succeeded
+    - on-health-degraded
 
   templates.sync-operation-status-change: |
     webhook:
