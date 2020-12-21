@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-notifications-cm
+data:
+  context: |
+    argocdUrl: https://cd.apps.argoproj.io
+
+  defaultTriggers:
+  - on-sync-status-unknown
+  - on-sync-failed
+  - on-sync-succeeded
+  - on-health-degraded
+
+  templates.sync-operation-status-change: |
+    webhook:
+      github:
+        method: POST
+        path: /repos/{{call .repo.FullNameByRepoURL .app.spec.source.repoURL}}/statuses/{{.app.status.operationState.operation.sync.revision}}
+        body: |
+          {
+            {{if eq .app.status.operationState.phase "Running"}} "state": "pending"{{end}}
+            {{if eq .app.status.operationState.phase "Succeeded"}} "state": "success"{{end}}
+            {{if eq .app.status.operationState.phase "Error"}} "state": "error"{{end}}
+            {{if eq .app.status.operationState.phase "Failed"}} "state": "error"{{end}},
+            "description": "ArgoCD",
+            "target_url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+            "context": "continuous-delivery/{{.app.metadata.name}}"
+          }
+
+  services.slack: |
+    slack:
+      token: $slack-token
+      signingSecret: $slack-signing-secret
+  
+  services.webhook: |
+    webhook:
+    - name: github
+      url: https://api.github.com
+      headers: #optional headers
+      - name: Authorization
+        value: token $github-token

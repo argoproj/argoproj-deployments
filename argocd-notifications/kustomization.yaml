@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- argo-cd-notifications-bot-ingress.yaml
+- argo-cd-notifications-bot-certificate.yaml
+- https://github.com/argoproj-labs/argocd-notifications/manifests/bot?ref=refactoring-v1.0
+
+patchesStrategicMerge:
+- overlays/argocd-notifications-controller-deploy.yaml
+- overlays/argocd-notifications-cm.yaml
+- overlays/argocd-notifications-bot-service.yaml
+- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/refactoring-v1.0/catalog/install.yaml
+
+images:
+# - name: argoprojlabs/argocd-notifications
+#   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
+#   newTag: 0.7.0-a883de7a
+
+- name: alexmt/argocd-notifications
+  newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
+  newTag: v1.0.0-rc1-666861a
