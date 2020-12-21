@@ -28,12 +28,12 @@ data:
             "context": "continuous-delivery/{{.app.metadata.name}}"
           }
 
-  services.slack: |
+  service.slack: |
     slack:
       token: $slack-token
       signingSecret: $slack-signing-secret
   
-  services.webhook: |
+  service.webhook: |
     webhook:
     - name: github
       url: https://api.github.com
