@@ -19,4 +19,4 @@ images:
 
 - name: argoprojlabs/argocd-notifications
   newName: alexmt/argocd-notifications
-  newTag: v1.0.0-rc1-f0de760
+  newTag: v1.0.0-rc1-79988f3
