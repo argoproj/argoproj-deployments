@@ -6,13 +6,22 @@ data:
   context: |
     argocdUrl: https://cd.apps.argoproj.io
 
-  defaultTriggers: |
-    - on-sync-status-unknown
-    - on-sync-failed
-    - on-sync-succeeded
-    - on-health-degraded
+  trigger.sync-operation-change: |
+    - when: app.status.operationState.phase in ['Succeeded']
+      send: [app-sync-succeeded, github-commit-status]
+    - when: app.status.operationState.phase in ['Error', 'Failed']
+      send: [app-sync-failed, github-commit-status]
+    - when: app.status.operationState.phase in ['Running']
+      send: [app-sync-running, github-commit-status]
 
-  templates.sync-operation-status-change: |
+  trigger.health-change: |
+   - when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
+     send: [app-sync-succeeded]
+     oncePer: app.status.sync.revision
+   - when: app.status.health.status == 'Degraded'
+     send: [app-health-degraded]
+
+  templates.github-commit-status: |
     webhook:
       github:
         method: POST
