@@ -41,7 +41,7 @@ data:
     token: $slack-token
     signingSecret: $slack-signing-secret
   
-  service.github: |
+  service.webhook.github: |
     url: https://api.github.com
     headers: #optional headers
     - name: Authorization
