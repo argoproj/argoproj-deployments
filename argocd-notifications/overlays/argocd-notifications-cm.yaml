@@ -38,14 +38,11 @@ data:
           }
 
   service.slack: |
-    slack:
-      token: $slack-token
-      signingSecret: $slack-signing-secret
+    token: $slack-token
+    signingSecret: $slack-signing-secret
   
-  service.webhook: |
-    webhook:
-    - name: github
-      url: https://api.github.com
-      headers: #optional headers
-      - name: Authorization
-        value: token $github-token
+  service.github: |
+    url: https://api.github.com
+    headers: #optional headers
+    - name: Authorization
+      value: token $github-token
