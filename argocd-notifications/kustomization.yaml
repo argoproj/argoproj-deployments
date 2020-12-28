@@ -19,4 +19,4 @@ images:
 
 - name: alexmt/argocd-notifications
   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
-  newTag: v1.0.0-rc1-666861a
+  newTag: v1.0.0-rc1-8b0de2f
