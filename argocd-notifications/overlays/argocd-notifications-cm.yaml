@@ -8,11 +8,11 @@ data:
 
   trigger.sync-operation-change: |
     - when: app.status.operationState.phase in ['Succeeded']
-      send: [app-sync-succeeded, github-commit-status]
+      send: [github-commit-status]
+    - when: app.status.operationState.phase in ['Running']
+      send: [github-commit-status]
     - when: app.status.operationState.phase in ['Error', 'Failed']
       send: [app-sync-failed, github-commit-status]
-    - when: app.status.operationState.phase in ['Running']
-      send: [app-sync-running, github-commit-status]
 
   trigger.health-change: |
    - when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
