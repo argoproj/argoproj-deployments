@@ -21,7 +21,7 @@ data:
    - when: app.status.health.status == 'Degraded'
      send: [app-health-degraded]
 
-  templates.github-commit-status: |
+  template.github-commit-status: |
     webhook:
       github:
         method: POST
