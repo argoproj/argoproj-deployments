@@ -8,20 +8,14 @@ data:
 
   trigger.sync-operation-change: |
     - when: app.status.operationState.phase in ['Succeeded']
-      send: [github-commit-status]
+      send: [github-commit-status, app-sync-succeeded]
     - when: app.status.operationState.phase in ['Running']
-      send: [github-commit-status]
+      send: [github-commit-status, app-sync-running]
     - when: app.status.operationState.phase in ['Error', 'Failed']
-      send: [app-sync-failed, github-commit-status]
-
-  trigger.health-change: |
-   - when: app.status.operationState.phase in ['Succeeded'] and app.status.health.status == 'Healthy'
-     send: [app-sync-succeeded]
-     oncePer: app.status.sync.revision
-   - when: app.status.health.status == 'Degraded'
-     send: [app-health-degraded]
+      send: [github-commit-status, app-sync-failed]
 
   template.github-commit-status: |
+    description: Generates Github webhook payload
     webhook:
       github:
         method: POST
