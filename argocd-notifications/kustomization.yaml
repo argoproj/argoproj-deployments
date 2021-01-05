@@ -15,4 +15,4 @@ patchesStrategicMerge:
 images:
 - name: argoprojlabs/argocd-notifications
   newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
-  newTag: 1.0.0-d0da61d2
+  newTag: 1.0.0-1fc14499
