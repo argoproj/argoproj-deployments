@@ -6,3 +6,7 @@
   path: /spec/template/spec/containers/0/args/-
   value:
     --auth-mode=client
+- op: add
+  path: /spec/template/spec/containers/0/args/-
+  value:
+    --x-frame-options=SAMEORIGIN
