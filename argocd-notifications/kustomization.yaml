@@ -12,7 +12,3 @@ patchesStrategicMerge:
 - overlays/argocd-notifications-bot-service.yaml
 - https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml
 
-images:
-- name: argoprojlabs/argocd-notifications
-  newName: docker.pkg.github.com/argoproj-labs/argocd-notifications/argocd-notifications
-  newTag: 1.0.0-1fc14499
