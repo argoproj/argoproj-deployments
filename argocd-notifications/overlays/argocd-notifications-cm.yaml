@@ -35,6 +35,10 @@ data:
     token: $slack-token
     signingSecret: $slack-signing-secret
   
+  service.grafana: |
+    apiUrl: https://grafana.apps.argoproj.io/api
+    apiKey: $grafana-token
+
   service.webhook.github: |
     url: https://api.github.com
     headers: #optional headers
