@@ -8,6 +8,6 @@ spec:
       containers:
       - name: argocd-notifications-controller
         command:
-        - /app/argocd-notifications
+        - /app/argocd-notifications-backend
         - controller
         - --app-label-selector=!testing
