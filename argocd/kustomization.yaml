@@ -27,4 +27,4 @@ namespace: argocd
 images:
 - name: argoproj/argocd
   newName: docker.pkg.github.com/argoproj/argo-cd/argocd
-  newTag: 1.9.0-81497bbc
+  newTag: 1.9.0-5037a652
