@@ -15,9 +15,9 @@ data:
           name: argo-artifacts-minio
           key: secretkey
     links:
-    - name: Give feedback on the v3 UI
+    - name: Learn more about Argo Workflows v3.0
       scope: chat
-      url: https://docs.google.com/document/d/1VHwp53QMPoUVACiyWFXriktxwSznEW1ZsQqJHrZklO8/edit?usp=sharing
+      url: http://bit.ly/argo-v3
     sso:
       issuer: https://dex.apps.argoproj.io/dex
       clientId:
