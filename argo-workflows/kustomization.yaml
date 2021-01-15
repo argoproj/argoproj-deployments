@@ -40,6 +40,3 @@ patchesJson6902:
       version: v1
 
 namespace: argo
-images:
-  - name: argoproj/argocli
-    newTag: ui-v3
