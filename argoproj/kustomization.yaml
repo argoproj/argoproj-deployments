@@ -15,3 +15,4 @@ resources:
 - base/istio-controlplane.yaml
 - base/istio-addons.yaml
 - base/argocd-notifications.yaml
+- base/argocd-image-updater.yaml
