@@ -1,15 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-notifications
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: argoprojlabs/argocd-notifications
+  name: argocd-image-updater
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: argocd-notifications
+    path: argocd-image-updater
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
