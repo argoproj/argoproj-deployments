@@ -16,3 +16,4 @@ resources:
 - base/istio-addons.yaml
 - base/argocd-notifications.yaml
 - base/argocd-image-updater.yaml
+- base/governor.yaml
