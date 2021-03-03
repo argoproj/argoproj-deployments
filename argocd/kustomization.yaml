@@ -27,4 +27,4 @@ namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
   newName: docker.pkg.github.com/argoproj/argo-cd/argocd
-  newTag: 1.9.0-7abfbe81
+  newTag: 1.9.0-b0f95201
