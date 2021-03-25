@@ -14,10 +14,6 @@ data:
         secretKeySecret:                #omit if accessing via AWS IAM
           name: argo-artifacts-minio
           key: secretkey
-    links:
-    - name: Learn more about Argo Workflows v3.0
-      scope: chat
-      url: http://bit.ly/argo-v3
     sso:
       issuer: https://dex.apps.argoproj.io/dex
       clientId:
