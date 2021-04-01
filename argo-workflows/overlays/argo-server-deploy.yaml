@@ -14,7 +14,3 @@ spec:
             - --auth-mode=sso
             - --auth-mode=client
             - --x-frame-options=SAMEORIGIN
-            - --secure=false
-          readinessProbe:
-            httpGet:
-              scheme: HTTP
