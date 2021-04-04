@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 - argo-cd-notifications-bot-ingress.yaml
 - argo-cd-notifications-bot-certificate.yaml
-- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/master/manifests/install.yaml
+- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/master/manifests/install-bot.yaml
 
 patchesStrategicMerge:
 - overlays/argocd-notifications-controller-deploy.yaml
