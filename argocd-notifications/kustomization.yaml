@@ -4,11 +4,15 @@ kind: Kustomization
 resources:
 - argo-cd-notifications-bot-ingress.yaml
 - argo-cd-notifications-bot-certificate.yaml
-- https://github.com/argoproj-labs/argocd-notifications/manifests/bot?ref=release-1.0
+- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/master/manifests/install.yaml
 
 patchesStrategicMerge:
 - overlays/argocd-notifications-controller-deploy.yaml
 - overlays/argocd-notifications-cm.yaml
 - overlays/argocd-notifications-bot-service.yaml
-- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml
+- https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/master/catalog/install.yaml
 
+images:
+- name: argoprojlabs/argocd-notifications
+  newName: ghcr.io/argoproj-labs/argocd-notifications
+  newTag: 1.0.0-1e6889d8
