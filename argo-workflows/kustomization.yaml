@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - resources/argo-ns.yaml
-  - https://github.com/argoproj/argo/manifests/namespace-install
+  - https://github.com/argoproj/argo-workflows/manifests/namespace-install
   - resources/argo-server-ingress.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
