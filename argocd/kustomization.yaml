@@ -1,15 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+
 resources:
 - base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
 - base/argo-cd-ui-ingress.yaml
 - base/jenkins-ingress.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
-
-components:
-- https://github.com/argoproj-labs/argocd-extensions/manifests
 
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
@@ -29,4 +27,4 @@ namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argocd
-  newTag: 2.2.0-b264729b
+  newTag: 2.2.0-2f6e91ad
