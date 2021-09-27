@@ -9,6 +9,9 @@ resources:
 - base/jenkins-ingress.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
 
+components:
+- https://github.com/argoproj-labs/argocd-extensions/manifests
+
 patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
 - overlays/production/argocd-server-service.yaml
