@@ -15,4 +15,4 @@ patchesStrategicMerge:
 images:
 - name: argoprojlabs/argocd-notifications
   newName: ghcr.io/argoproj-labs/argocd-notifications
-  newTag: 1.0.0-1e6889d8
+  newTag: 1.2.0
