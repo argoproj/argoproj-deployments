@@ -17,6 +17,10 @@ patchesStrategicMerge:
 - overlays/production/argo-cd-cm.yaml
 - overlays/production/argocd-server-service.yaml
 - overlays/production/argocd-repo-server-deploy.yaml
+- overlays/production/argocd-notifications-controller-deploy.yaml
+- overlays/production/argocd-notifications-cm.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+
 
 patchesJson6902:
 - path: overlays/production/argocd-server-deploy-command.yaml
