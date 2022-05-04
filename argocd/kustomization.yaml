@@ -35,4 +35,4 @@ namespace: argocd
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argocd
-  newTag: 2.4.0-d053952f
+  newTag: 2.4.0-14bd4fd7
