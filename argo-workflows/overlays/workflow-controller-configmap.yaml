@@ -27,7 +27,6 @@ data:
        - groups
       rbac:
         enabled: true
-    containerRuntimeExecutor: pns
     workflowDefaults:
       spec:
         activeDeadlineSeconds: 30
