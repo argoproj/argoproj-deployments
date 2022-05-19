@@ -29,9 +29,7 @@ data:
         enabled: true
     workflowDefaults:
       spec:
-        activeDeadlineSeconds: 30
-        ttlStrategy:
-          secondsAfterCompletion: 600
+        activeDeadlineSeconds: 600
     retentionPolicy:
       completed: 20
       failed: 3
