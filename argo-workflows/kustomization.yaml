@@ -5,7 +5,7 @@ resources:
   - resources/argo-ns.yaml
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
-  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/artifact-repositories-configmap.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/argo-server-ingress.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
