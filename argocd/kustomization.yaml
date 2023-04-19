@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: argocd
 
 resources:
 - base/argo-cd-issuer.yaml
@@ -19,18 +20,8 @@ patchesStrategicMerge:
 - overlays/production/argocd-repo-server-deploy.yaml
 - overlays/production/argocd-notifications-controller-deploy.yaml
 - overlays/production/argocd-notifications-cm.yaml
+- overlays/production/argocd-cmd-params-cm.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
-
-
-patchesJson6902:
-- path: overlays/production/argocd-server-deploy-command.yaml
-  target:
-    group: apps
-    kind: Deployment
-    name: argocd-server
-    version: v1
-
-namespace: argocd
 
 images:
 - name: quay.io/argoproj/argocd
