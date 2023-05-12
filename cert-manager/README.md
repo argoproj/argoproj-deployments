@@ -1,5 +1,4 @@
 # Installation
 
-Manifests copied from: 
-https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests
-
+Manifests copied from the release page. Example:
+https://github.com/cert-manager/cert-manager/releases/tag/v1.11.2
