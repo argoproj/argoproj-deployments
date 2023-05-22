@@ -26,4 +26,4 @@ patchesStrategicMerge:
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 2.8.0-87a7dff4
+  newTag: 2.8.0-b44c805e
