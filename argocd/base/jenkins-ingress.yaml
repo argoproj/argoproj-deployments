@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/app-root: "/"
 spec:
   rules:
-  - host: jenkins.apps.argoproj.io
+  - host: jenkins.ssc-eks-ekm.ssc.band
     http:
       paths:
       - path: /

@@ -12,7 +12,7 @@ spec:
     - cd.apps.argoproj.io
     secretName: argocd-secret
   rules:
-  - host: cd.apps.argoproj.io
+  - host: cd.apps.ssc-eks-ekm.ssc.band
     http:
       paths:
       - path: /
