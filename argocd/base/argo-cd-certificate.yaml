@@ -9,4 +9,4 @@ spec:
     kind: Issuer
   commonName: cd.apps.argoproj.io
   dnsNames:
-  - cd.apps.argoproj.io
+  - argo-dev.ssc-eks-ekm.ssc.band
