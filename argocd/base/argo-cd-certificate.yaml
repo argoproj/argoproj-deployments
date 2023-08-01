@@ -7,6 +7,6 @@ spec:
   issuerRef:
     name: argo-cd-issuer
     kind: Issuer
-  commonName: cd.apps.argoproj.io
+  commonName: argo-dev.ssc-eks-ekm.ssc.band
   dnsNames:
   - argo-dev.ssc-eks-ekm.ssc.band
