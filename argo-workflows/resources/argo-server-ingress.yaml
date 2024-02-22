@@ -5,10 +5,10 @@ metadata:
   annotations:
     # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
     ingress.kubernetes.io/proxy-body-size: 100M
-    kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/app-root: "/"
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - workflows.apps.argoproj.io
