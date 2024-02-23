@@ -62,3 +62,59 @@ module "cloud-nat" {
   ]
 
 }
+
+
+module "cluster-dns" {
+  source  = "terraform-google-modules/cloud-dns/google"
+  version = "~> 5.0"
+
+  project_id = data.google_project.project.project_id
+  type       = "private"
+  name       = var.name
+  domain     = "${var.name}.cluster."
+
+  private_visibility_config_networks = [data.google_compute_network.vpc.self_link]
+
+  recordsets = [
+    {
+      name = "ns"
+      type = "A"
+      ttl  = 300
+      records = [
+        "127.0.0.1",
+      ]
+    },
+    {
+      name = ""
+      type = "NS"
+      ttl  = 300
+      records = [
+        "ns.${var.name}.cluster.",
+      ]
+    },
+    {
+      name = "localhost"
+      type = "A"
+      ttl  = 300
+      records = [
+        "127.0.0.1",
+      ]
+    },
+    {
+      name = ""
+      type = "MX"
+      ttl  = 300
+      records = [
+        "1 localhost.",
+      ]
+    },
+    {
+      name = ""
+      type = "TXT"
+      ttl  = 300
+      records = [
+        "\"v=spf1 -all\"",
+      ]
+    },
+  ]
+}

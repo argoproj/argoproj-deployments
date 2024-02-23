@@ -8,13 +8,14 @@ locals {
   ]
   admin_roles = [
     "viewer",
-    "cloudkms.admin",
-    "compute.networkAdmin",
-    "iam.serviceAccountAdmin",
-    "iam.serviceAccountUser",
-    "container.admin",
-    "iap.tunnelResourceAccessor",
-    "compute.admin",
+    "cloudkms.admin",             // Create remote-state bucket
+    "compute.networkAdmin",       // Create VPC
+    "iam.serviceAccountAdmin",    // Create Cluster
+    "iam.serviceAccountUser",     // Create Cluster
+    "container.admin",            // Create Cluster
+    "iap.tunnelResourceAccessor", // SSH to nodes
+    "compute.admin",              // SSH to nodes
+    "dns.admin"                   // Create cluster DNS zone
   ]
 }
 

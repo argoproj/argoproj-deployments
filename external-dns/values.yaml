@@ -1,0 +1,19 @@
+external-dns:
+  provider: google
+  policy: sync
+  sources:
+    - ingress
+  txtOwnerId: argo-demo-apps
+  domainFilters:
+    - argo-demo-apps.cluster
+  extraArgs:
+    - --google-project=argo-demo-apps
+
+  logFormat: json
+  logLevel: debug
+  serviceMonitor:
+    enabled: false
+  serviceAccount:
+    annotations:
+      iam.gke.io/gcp-service-account: external-dns@argo-demo-apps.iam.gserviceaccount.com
+    automountServiceAccountToken: true

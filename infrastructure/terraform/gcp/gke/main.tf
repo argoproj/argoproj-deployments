@@ -45,6 +45,8 @@ module "gke" {
   // Set to false if you need to delete/recreate the cluster
   deletion_protection = true
 
-  depends_on = [module.subnet]
+  depends_on = [
+    module.subnet
+  ]
 
 }
