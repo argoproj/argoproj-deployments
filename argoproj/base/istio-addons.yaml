@@ -6,11 +6,11 @@ spec:
   source:
     path: samples/addons
     repoURL: https://github.com/istio/istio
-    targetRevision: release-1.7
+    targetRevision: release-1.20
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
   project: default
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
