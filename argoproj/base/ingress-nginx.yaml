@@ -10,19 +10,7 @@ spec:
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
     chart: ingress-nginx
-    targetRevision: 4.5.2
-    helm:
-      values: |
-        controller:
-          autoscaling:
-            enabled: true
-            minReplicas: 3
-            maxReplicas: 8
-  ignoreDifferences:
-  - group: autoscaling
-    kind: HorizontalPodAutoscaler
-    jsonPointers:
-    - /spec/metrics
+    targetRevision: 4.9.1
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
