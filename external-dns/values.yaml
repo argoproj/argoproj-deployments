@@ -10,7 +10,7 @@ external-dns:
     - --google-project=argo-demo-apps
 
   logFormat: json
-  logLevel: debug
+  logLevel: info
   serviceMonitor:
     enabled: false
   serviceAccount:
