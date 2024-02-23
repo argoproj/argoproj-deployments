@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
   - https://github.com/argoproj/argo-events/manifests/namespace-install
   - https://raw.githubusercontent.com/argoproj/argo-events/master/examples/eventbus/native.yaml
-  - operate-workflow-sa.yaml
-  - operate-wf-rbac.yaml
-  - calendar-eventsource.yaml
-  - workflow-sensor.yaml
-  - log-sensor.yaml
+  - base/operate-workflow-sa.yaml
+  - base/operate-wf-rbac.yaml
+  - base/calendar-eventsource.yaml
+  - base/workflow-sensor.yaml
+  - base/log-sensor.yaml
 
 namespace: argo
