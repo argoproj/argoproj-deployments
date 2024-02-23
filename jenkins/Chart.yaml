@@ -1,3 +1,8 @@
 name: jenkins
 apiVersion: v2
 version: "1.0.0"
+
+dependencies:
+  - name: jenkins
+    version: 1.1.15
+    repository: https://charts.helm.sh/stable
