@@ -1,4 +1,4 @@
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: grafana-issuer
@@ -9,8 +9,8 @@ spec:
     privateKeySecretRef:
       name: letsencrypt
     solvers:
-    # An empty 'selector' means that this solver matches all domains
-    - selector: {}
-      http01:
-        ingress:
-          class: nginx
+      # An empty 'selector' means that this solver matches all domains
+      - selector: {}
+        http01:
+          ingress:
+            class: nginx
