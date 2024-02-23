@@ -2,19 +2,19 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- https://raw.githubusercontent.com/keikoproj/governor/master/examples/pod-reaper.yaml
+  - https://raw.githubusercontent.com/keikoproj/governor/master/examples/pod-reaper.yaml
 
 images:
-- name: governor
-  newName: keikoproj/governor
-  newTag: 0.2.6
+  - name: governor
+    newName: keikoproj/governor
+    newTag: 0.2.6
+
 patchesStrategicMerge:
   - pod-reaper-cr.yaml
 
 patches:
-- path: pod-reaper-job-patch.yaml
-  target:
-    group: batch
-    version: v1beta1
-    kind: CronJob
-    name: pod-reaper
+  - path: pod-reaper-job-patch.yaml
+    target:
+      group: batch
+      kind: CronJob
+      name: pod-reaper
