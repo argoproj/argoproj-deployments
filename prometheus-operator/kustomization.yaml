@@ -17,6 +17,7 @@ configMapGenerator:
   - name: argocd-dashboard-cm
     files:
       - dashboard.json
+
 patchesJson6902:
   - target:
       name: prometheus-operator-grafana
@@ -24,6 +25,12 @@ patchesJson6902:
       version: v1
       kind: Secret
     path: overlays/prometheus-operator-grafana-secret.yaml
+  - target:
+      name: .*
+      version: v1
+      group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+    path: overlays/prometheus-crds-annotations.yaml
 
 patchesStrategicMerge:
   - overlays/prometheus-operator-grafana-cm.yaml
