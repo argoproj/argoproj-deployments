@@ -1,3 +1,7 @@
+locals {
+  argoproj_domain = "argoproj.io."
+}
+
 data "google_project" "project" {}
 
 module "vpc" {
@@ -32,4 +36,44 @@ module "cloud_router" {
   project = data.google_project.project.project_id
   network = module.vpc.network_name
   region  = each.value
+}
+
+# module "argoproj-dns-root" {
+#   source  = "terraform-google-modules/cloud-dns/google"
+#   version = "~> 5.0"
+
+#   project_id = data.google_project.project.project_id
+#   type       = "public"
+#   name       = "argoproj-io"
+#   domain     = local.argoproj_domain
+
+#   enable_logging = true
+
+#   private_visibility_config_networks = [module.vpc.network_self_link]
+
+#   recordsets = [for key, dns in module.argoproj-dns :
+#     {
+#       name    = key
+#       records = dns.name_servers
+#       ttl     = 300
+#       type    = "NS"
+#     }
+#   ]
+# }
+
+module "argoproj-dns" {
+  for_each = var.zones
+  source   = "terraform-google-modules/cloud-dns/google"
+  version  = "~> 5.0"
+
+  project_id = data.google_project.project.project_id
+  type       = "public"
+  name       = replace(trimsuffix("${each.value}.${local.argoproj_domain}", "."), ".", "-")
+  domain     = "${each.value}.${local.argoproj_domain}"
+
+  enable_logging = true
+
+  force_destroy = false // Set to true to delete the zones with records
+
+  private_visibility_config_networks = [module.vpc.network_self_link]
 }

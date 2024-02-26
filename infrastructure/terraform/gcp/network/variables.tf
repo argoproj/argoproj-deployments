@@ -8,3 +8,9 @@ variable "regions" {
   description = "The regions that will host clusters"
   default     = []
 }
+
+variable "zones" {
+  type        = set(string)
+  description = "Zones under the argoproj.io domain"
+  default     = []
+}

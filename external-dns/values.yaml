@@ -6,6 +6,7 @@ external-dns:
   txtOwnerId: argo-demo-apps
   domainFilters:
     - argo-demo-apps.cluster
+    - apps.argoproj.io
   extraArgs:
     - --google-project=argo-demo-apps
 
