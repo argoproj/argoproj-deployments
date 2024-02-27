@@ -19,6 +19,7 @@ patches:
   - path: overlays/production/argocd-notifications-controller-deploy.yaml
   - path: overlays/production/argocd-notifications-cm.yaml
   - path: overlays/production/argocd-cmd-params-cm.yaml
+  - path: overlays/production/argocd-rbac-cm.yaml
   - path: https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.1/notifications_catalog/install.yaml
 
 images:
