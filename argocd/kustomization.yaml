@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: argocd
 
 resources:
+  - base/argo-cd-auth-secret.yaml
   - base/argo-cd-issuer.yaml
   - base/argo-cd-certificate.yaml
   - base/argo-cd-ui-ingress.yaml
