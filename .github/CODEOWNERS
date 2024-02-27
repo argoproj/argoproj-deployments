@@ -1,0 +1,4 @@
+# Infrastructure
+/infrastructure/                                      @agaudreault @leoluz
+/argocd/overlays/production/argocd-rbac-cm.yaml       @agaudreault @leoluz
+/external-dns/values.yaml                             @agaudreault @leoluz
