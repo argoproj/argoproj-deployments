@@ -7,7 +7,7 @@ resources:
 images:
   - name: governor
     newName: keikoproj/governor
-    newTag: 0.4.1
+    newTag: v0.4.1
 
 patchesStrategicMerge:
   - pod-reaper-cr.yaml
