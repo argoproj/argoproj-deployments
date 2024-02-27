@@ -8,7 +8,7 @@ resources:
   - base/argo-cd-certificate.yaml
   - base/argo-cd-ui-ingress.yaml
   - base/rollouts-extension.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.1/manifests/ha/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
 
 components:
   - https://github.com/argoproj-labs/argocd-extensions/manifests
@@ -20,8 +20,9 @@ patches:
   - path: overlays/production/argocd-notifications-cm.yaml
   - path: overlays/production/argocd-cmd-params-cm.yaml
   - path: overlays/production/argocd-rbac-cm.yaml
-  - path: https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.1/notifications_catalog/install.yaml
+  - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
 
 images:
-  - name: quay.io/argoproj/argocd
-    newTag: v2.10.1
+- name: quay.io/argoproj/argocd
+  newName: ghcr.io/argoproj/argo-cd/argocd
+  newTag: 2.9.0-891d0893
