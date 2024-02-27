@@ -47,7 +47,7 @@ module "cloud_router" {
 #   name       = "argoproj-io"
 #   domain     = local.argoproj_domain
 
-#   enable_logging = true
+#   enable_logging = false
 
 #   private_visibility_config_networks = [module.vpc.network_self_link]
 
@@ -70,8 +70,6 @@ module "argoproj-dns" {
   type       = "public"
   name       = replace(trimsuffix("${each.value}.${local.argoproj_domain}", "."), ".", "-")
   domain     = "${each.value}.${local.argoproj_domain}"
-
-  enable_logging = true
 
   force_destroy = false // Set to true to delete the zones with records
 
