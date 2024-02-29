@@ -7,6 +7,7 @@ resources:
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/argo-server-ingress.yaml
+  - resources/argo-server-sa-secret.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
   - resources/coinflip-workflowtemplate.yaml
@@ -41,4 +42,5 @@ patches:
   - path: overlays/workflow-controller-configmap.yaml
   - path: overlays/argo-server-role.yaml
   - path: overlays/argo-server-sa.yaml
+  - path: overlays/argo-server-sa-secret.yaml
   - path: overlays/argo-server-deploy.yaml
