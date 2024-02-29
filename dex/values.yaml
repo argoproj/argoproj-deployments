@@ -1,5 +1,5 @@
 dex:
-  replicaCount: 3
+  replicaCount: 1
 
   configSecret:
     # TODO: need to manually create configs as a Secret
