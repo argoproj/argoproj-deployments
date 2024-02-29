@@ -13,11 +13,11 @@ resources:
   - resources/coinflip-cronworkflow.yaml
   - resources/workflow-role.yaml
   - resources/workflow-sa.yaml
-  - resources/workflow-secret.yaml
+  - resources/workflow-sa-secret.yaml
   - resources/workflow-rolebinding.yaml
   - resources/read-write-role.yaml
   - resources/read-write-sa.yaml
-  - resources/read-write-secret.yaml
+  - resources/read-write-sa-secret.yaml
   - resources/read-write-rolebinding.yaml
   - resources/submit-workflow-template-role.yaml
   - resources/github.com-sa.yaml
@@ -35,10 +35,10 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
   - resources/ci-cronworkflow.yaml
 
-patchesStrategicMerge:
-  - overlays/workflow-controller-configmap.yaml
-  - overlays/argo-server-role.yaml
-  - overlays/argo-server-sa.yaml
-  - overlays/argo-server-deploy.yaml
-
 namespace: argo
+
+patches:
+  - path: overlays/workflow-controller-configmap.yaml
+  - path: overlays/argo-server-role.yaml
+  - path: overlays/argo-server-sa.yaml
+  - path: overlays/argo-server-deploy.yaml
