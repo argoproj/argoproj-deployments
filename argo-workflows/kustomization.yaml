@@ -13,12 +13,15 @@ resources:
   - resources/coinflip-cronworkflow.yaml
   - resources/workflow-role.yaml
   - resources/workflow-sa.yaml
+  - resources/workflow-secret.yaml
   - resources/workflow-rolebinding.yaml
   - resources/read-write-role.yaml
   - resources/read-write-sa.yaml
+  - resources/read-write-secret.yaml
   - resources/read-write-rolebinding.yaml
   - resources/submit-workflow-template-role.yaml
   - resources/github.com-sa.yaml
+  - resources/github.com-sa-secret.yaml
   - resources/github.com-rolebinding.yaml
   - resources/github-event-workflowtemplate.yaml
   - resources/event-consumer-workfloweventbinding.yaml
