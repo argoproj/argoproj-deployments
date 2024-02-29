@@ -7,7 +7,6 @@ resources:
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/argo-server-ingress.yaml
-  - resources/argo-server-sa-secret.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
   - resources/coinflip-workflowtemplate.yaml
@@ -16,6 +15,8 @@ resources:
   - resources/workflow-sa.yaml
   - resources/workflow-sa-secret.yaml
   - resources/workflow-rolebinding.yaml
+  - resources/user-default-login-sa.yaml
+  - resources/user-default-login-sa-secret.yaml
   - resources/read-write-role.yaml
   - resources/read-write-sa.yaml
   - resources/read-write-sa-secret.yaml
