@@ -1,43 +1,48 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: argo
+
 resources:
-  - resources/argo-ns.yaml
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
-  - resources/argo-server-ingress.yaml
-  - resources/argo-workflows-certificate.yaml
-  - resources/argo-workflows-issuer.yaml
-  - resources/coinflip-workflowtemplate.yaml
-  - resources/coinflip-cronworkflow.yaml
-  - resources/workflow-role.yaml
-  - resources/workflow-sa.yaml
-  - resources/workflow-sa-secret.yaml
-  - resources/workflow-rolebinding.yaml
-  - resources/user-default-login-sa.yaml
-  - resources/user-default-login-sa-secret.yaml
-  - resources/read-write-role.yaml
-  - resources/read-write-sa.yaml
-  - resources/read-write-sa-secret.yaml
-  - resources/read-write-rolebinding.yaml
-  - resources/submit-workflow-template-role.yaml
-  - resources/github.com-sa.yaml
-  - resources/github.com-sa-secret.yaml
-  - resources/github.com-rolebinding.yaml
-  - resources/github-event-workflowtemplate.yaml
-  - resources/event-consumer-workfloweventbinding.yaml
-  - resources/workflow-count-resourcequota.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
-  - resources/artifacts-cronworkflow.yaml
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
-  - resources/ci-cronworkflow.yaml
-
-namespace: argo
+  - resources/argo-ns.yaml
+  - resources/argo-rolebinding.yaml
+  - resources/argo-server-ingress.yaml
+  - resources/argo-workflows-certificate.yaml
+  - resources/argo-workflows-issuer.yaml
+  - resources/rbac/github.com-rolebinding.yaml
+  - resources/rbac/github.com-sa-secret.yaml
+  - resources/rbac/github.com-sa.yaml
+  - resources/rbac/read-only-clusterrole.yaml
+  - resources/rbac/read-only-clusterrolebinding.yaml
+  - resources/rbac/read-only-namespaced-clusterrole.yaml
+  - resources/rbac/read-only-rolebinding.yaml
+  - resources/rbac/read-write-role.yaml
+  - resources/rbac/read-write-rolebinding.yaml
+  - resources/rbac/read-write-sa-secret.yaml
+  - resources/rbac/read-write-sa.yaml
+  - resources/rbac/submit-workflow-template-role.yaml
+  - resources/rbac/user-default-login-sa-secret.yaml
+  - resources/rbac/user-default-login-sa.yaml
+  - resources/rbac/workflow-role.yaml
+  - resources/rbac/workflow-rolebinding.yaml
+  - resources/rbac/workflow-sa-secret.yaml
+  - resources/rbac/workflow-sa.yaml
+  - resources/workflow-count-resourcequota.yaml
+  - resources/workflows/artifacts-cronworkflow.yaml
+  - resources/workflows/ci-cronworkflow.yaml
+  - resources/workflows/coinflip-cronworkflow.yaml
+  - resources/workflows/coinflip-workflowtemplate.yaml
+  - resources/workflows/event-consumer-workfloweventbinding.yaml
+  - resources/workflows/github-event-workflowtemplate.yaml
 
 patches:
   - path: overlays/workflow-controller-configmap.yaml
