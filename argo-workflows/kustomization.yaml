@@ -42,5 +42,4 @@ patches:
   - path: overlays/workflow-controller-configmap.yaml
   - path: overlays/argo-server-role.yaml
   - path: overlays/argo-server-sa.yaml
-  - path: overlays/argo-server-sa-secret.yaml
   - path: overlays/argo-server-deploy.yaml
