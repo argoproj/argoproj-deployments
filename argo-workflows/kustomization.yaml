@@ -3,8 +3,6 @@ kind: Kustomization
 
 resources:
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
-  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/argo-ns.yaml
   - resources/argo-rolebinding.yaml
   - resources/argo-server-ingress.yaml

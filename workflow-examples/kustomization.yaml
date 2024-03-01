@@ -4,6 +4,8 @@ kind: Kustomization
 namespace: workflow-playground
 
 resources:
+  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/rbac/github.com-rolebinding.yaml
   - resources/rbac/read-only-rolebinding.yaml
   - resources/rbac/read-write-rolebinding.yaml
