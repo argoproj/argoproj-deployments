@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argo
+
+resources:
+  - resources/read-only-rolebinding.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
+  - resources/workflows/artifacts-cronworkflow.yaml
+  - resources/workflows/ci-cronworkflow.yaml
+  - resources/workflows/coinflip-cronworkflow.yaml
+  - resources/workflows/coinflip-workflowtemplate.yaml
+  - resources/workflows/event-consumer-workfloweventbinding.yaml
+  - resources/workflows/github-event-workflowtemplate.yaml

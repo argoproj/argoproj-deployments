@@ -7,12 +7,6 @@ resources:
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
   - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
   - resources/argo-ns.yaml
   - resources/argo-rolebinding.yaml
   - resources/argo-server-ingress.yaml
@@ -37,12 +31,6 @@ resources:
   - resources/rbac/workflow-sa-secret.yaml
   - resources/rbac/workflow-sa.yaml
   - resources/workflow-count-resourcequota.yaml
-  - resources/workflows/artifacts-cronworkflow.yaml
-  - resources/workflows/ci-cronworkflow.yaml
-  - resources/workflows/coinflip-cronworkflow.yaml
-  - resources/workflows/coinflip-workflowtemplate.yaml
-  - resources/workflows/event-consumer-workfloweventbinding.yaml
-  - resources/workflows/github-event-workflowtemplate.yaml
 
 patches:
   - path: overlays/workflow-controller-configmap.yaml
