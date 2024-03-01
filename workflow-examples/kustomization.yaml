@@ -4,7 +4,12 @@ kind: Kustomization
 namespace: workflow-playground
 
 resources:
-  - resources/read-only-rolebinding.yaml
+  - resources/rbac/github.com-rolebinding.yaml
+  - resources/rbac/read-only-rolebinding.yaml
+  - resources/rbac/read-write-rolebinding.yaml
+  - resources/rbac/submit-workflow-template-role.yaml
+  - resources/rbac/workflow-role.yaml
+  - resources/rbac/workflow-rolebinding.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml

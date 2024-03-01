@@ -1,11 +1,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: read-only
+  name: workflow
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: argo-workflows-read-only-namespaced
+  kind: Role
+  name: workflow
 subjects:
   - kind: ServiceAccount
-    name: user-default-login
+    name: workflow
+    namespace: argo

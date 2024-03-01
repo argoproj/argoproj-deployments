@@ -1,8 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argo
-
 resources:
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
@@ -12,28 +10,28 @@ resources:
   - resources/argo-server-ingress.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
-  - resources/rbac/github.com-rolebinding.yaml
+  - resources/workflow-count-resourcequota.yaml
   - resources/rbac/github.com-sa-secret.yaml
   - resources/rbac/github.com-sa.yaml
   - resources/rbac/read-only-clusterrole.yaml
   - resources/rbac/read-only-clusterrolebinding.yaml
   - resources/rbac/read-only-namespaced-clusterrole.yaml
-  - resources/rbac/read-only-rolebinding.yaml
-  - resources/rbac/read-write-role.yaml
-  - resources/rbac/read-write-rolebinding.yaml
+  - resources/rbac/read-write-namespaced-clusterrole.yaml
   - resources/rbac/read-write-sa-secret.yaml
   - resources/rbac/read-write-sa.yaml
-  - resources/rbac/submit-workflow-template-role.yaml
   - resources/rbac/user-default-login-sa-secret.yaml
   - resources/rbac/user-default-login-sa.yaml
-  - resources/rbac/workflow-role.yaml
-  - resources/rbac/workflow-rolebinding.yaml
   - resources/rbac/workflow-sa-secret.yaml
   - resources/rbac/workflow-sa.yaml
-  - resources/workflow-count-resourcequota.yaml
 
 patches:
-  - path: overlays/workflow-controller-configmap.yaml
+  - path: overlays/argo-server-deploy.yaml
   - path: overlays/argo-server-role.yaml
   - path: overlays/argo-server-sa.yaml
-  - path: overlays/argo-server-deploy.yaml
+  - path: overlays/workflow-controller-configmap.yaml
+  - path: overlays/workflow-controller-deploy.yaml
+  - path: overlays/argo-server-rolebinding.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argo-server-binding

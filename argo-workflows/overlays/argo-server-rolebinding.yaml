@@ -1,0 +1,6 @@
+- op: replace
+  path: /metadata/namespace
+  value: workflow-playground
+- op: add
+  path: /subjects/0/namespace
+  value: argo
