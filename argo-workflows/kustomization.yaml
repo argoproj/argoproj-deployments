@@ -10,16 +10,9 @@ resources:
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
   - resources/workflow-count-resourcequota.yaml
-  - resources/rbac/github.com-sa-secret.yaml
-  - resources/rbac/github.com-sa.yaml
   - resources/rbac/read-only-clusterrole.yaml
-  - resources/rbac/read-only-clusterrolebinding.yaml
   - resources/rbac/read-only-namespaced-clusterrole.yaml
   - resources/rbac/read-write-namespaced-clusterrole.yaml
-  - resources/rbac/read-write-sa-secret.yaml
-  - resources/rbac/read-write-sa.yaml
-  - resources/rbac/user-default-login-sa-secret.yaml
-  - resources/rbac/user-default-login-sa.yaml
 
 patches:
   - path: overlays/argo-server-deploy.yaml
