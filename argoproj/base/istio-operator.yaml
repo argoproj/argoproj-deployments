@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: istio-operator
+  namespace: argocd
 spec:
   source:
     repoURL: https://github.com/istio/istio
@@ -18,3 +19,6 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

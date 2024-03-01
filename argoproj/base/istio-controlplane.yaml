@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: istio-controlplane
+  namespace: argocd
 spec:
   source:
     path: istio-controlplane
@@ -13,4 +14,7 @@ spec:
   project: default
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

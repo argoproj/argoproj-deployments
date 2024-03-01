@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocd-image-updater
+  namespace: argocd
 spec:
   destination:
     namespace: argocd
@@ -11,3 +12,9 @@ spec:
     path: argocd-image-updater
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
