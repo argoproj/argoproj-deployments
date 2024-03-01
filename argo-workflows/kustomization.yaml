@@ -8,6 +8,7 @@ resources:
   - resources/argo-ns.yaml
   - resources/argo-rolebinding.yaml
   - resources/argo-server-ingress.yaml
+  - resources/argo-server-rolebinding.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
   - resources/workflow-count-resourcequota.yaml
@@ -26,10 +27,30 @@ resources:
 
 patches:
   - path: overlays/argo-server-deploy.yaml
-  - path: overlays/argo-server-role.yaml
   - path: overlays/argo-server-sa.yaml
   - path: overlays/workflow-controller-configmap.yaml
   - path: overlays/workflow-controller-deploy.yaml
+  - path: overlays/argo-role.yaml
+    options:
+      allowKindChange: true
+      allowNameChange: true
+    target:
+      group: rbac.authorization.k8s.io
+      kind: Role
+      name: argo-role
+  - path: overlays/argo-rolebinding.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argo-binding
+  - path: overlays/argo-server-role.yaml
+    options:
+      allowKindChange: true
+      allowNameChange: true
+    target:
+      group: rbac.authorization.k8s.io
+      kind: Role
+      name: argo-server-role
   - path: overlays/argo-server-rolebinding.yaml
     target:
       group: rbac.authorization.k8s.io

@@ -3,4 +3,4 @@
   value: ClusterRole
 - op: replace
   path: /roleRef/name
-  value: argo-workflows-argo-server-role
+  value: argo-workflows-argo-role
