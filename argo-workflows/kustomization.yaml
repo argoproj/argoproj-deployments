@@ -22,8 +22,6 @@ resources:
   - resources/rbac/read-write-sa.yaml
   - resources/rbac/user-default-login-sa-secret.yaml
   - resources/rbac/user-default-login-sa.yaml
-  - resources/rbac/workflow-sa-secret.yaml
-  - resources/rbac/workflow-sa.yaml
 
 patches:
   - path: overlays/argo-server-deploy.yaml

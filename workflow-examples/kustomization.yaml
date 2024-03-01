@@ -22,3 +22,5 @@ resources:
   - resources/workflows/coinflip-workflowtemplate.yaml
   - resources/workflows/event-consumer-workfloweventbinding.yaml
   - resources/workflows/github-event-workflowtemplate.yaml
+  - resources/rbac/workflow-sa-secret.yaml
+  - resources/rbac/workflow-sa.yaml
