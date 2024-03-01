@@ -2,17 +2,18 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - base/argo-workflows.yaml
-  - base/argo-events.yaml
-  - base/dex.yaml
   - base/argo-cd.yaml
+  - base/argo-events.yaml
   - base/argo-rollouts.yaml
-  - base/cert-manager.yaml
-  - base/ingress-nginx.yaml
-  - base/prometheus-operator.yaml
-  - base/istio-operator.yaml
-  - base/istio-controlplane.yaml
-  - base/istio-addons.yaml
+  - base/argo-workflows.yaml
   - base/argocd-image-updater.yaml
-  - base/governor.yaml
+  - base/cert-manager.yaml
+  - base/dex.yaml
   - base/external-dns.yaml
+  - base/governor.yaml
+  - base/ingress-nginx.yaml
+  - base/istio-addons.yaml
+  - base/istio-controlplane.yaml
+  - base/istio-operator.yaml
+  - base/prometheus-operator.yaml
+  - base/workflow-examples.yaml
