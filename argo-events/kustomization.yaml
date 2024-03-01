@@ -9,5 +9,3 @@ resources:
   - base/calendar-eventsource.yaml
   - base/workflow-sensor.yaml
   - base/log-sensor.yaml
-
-namespace: argo
