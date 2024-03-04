@@ -4,25 +4,25 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - base/argo-cd-issuer.yaml
-  - base/argo-cd-certificate.yaml
-  - base/argo-cd-ui-ingress.yaml
-  - base/rollouts-extension.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
+- base/argo-cd-issuer.yaml
+- base/argo-cd-certificate.yaml
+- base/argo-cd-ui-ingress.yaml
+- base/rollouts-extension.yaml
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
 
 components:
-  - https://github.com/argoproj-labs/argocd-extensions/manifests
+- https://github.com/argoproj-labs/argocd-extensions/manifests
 
 patches:
-  - path: overlays/production/argo-cd-cm.yaml
-  - path: overlays/production/argocd-server-service.yaml
-  - path: overlays/production/argocd-notifications-controller-deploy.yaml
-  - path: overlays/production/argocd-notifications-cm.yaml
-  - path: overlays/production/argocd-cmd-params-cm.yaml
-  - path: overlays/production/argocd-rbac-cm.yaml
-  - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+- path: overlays/production/argo-cd-cm.yaml
+- path: overlays/production/argocd-server-service.yaml
+- path: overlays/production/argocd-notifications-controller-deploy.yaml
+- path: overlays/production/argocd-notifications-cm.yaml
+- path: overlays/production/argocd-cmd-params-cm.yaml
+- path: overlays/production/argocd-rbac-cm.yaml
+- path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
 
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 2.9.0-7eda6e01
+  newTag: 2.9.0-24ac3263
