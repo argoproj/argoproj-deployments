@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workflow-examples
+  namespace: argocd
+spec:
+  destination:
+    namespace: workflow-playground
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: workflow-examples
+    repoURL: https://github.com/argoproj/argoproj-deployments
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

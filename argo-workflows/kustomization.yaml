@@ -2,40 +2,46 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - resources/argo-ns.yaml
   - https://github.com/argoproj/argo-workflows/manifests/namespace-install
-  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
+  - resources/argo-ns.yaml
+  - resources/argo-rolebinding.yaml
   - resources/argo-server-ingress.yaml
+  - resources/argo-server-rolebinding.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
-  - resources/coinflip-workflowtemplate.yaml
-  - resources/coinflip-cronworkflow.yaml
-  - resources/workflow-role.yaml
-  - resources/workflow-sa.yaml
-  - resources/workflow-rolebinding.yaml
-  - resources/read-write-role.yaml
-  - resources/read-write-sa.yaml
-  - resources/read-write-rolebinding.yaml
-  - resources/submit-workflow-template-role.yaml
-  - resources/github.com-sa.yaml
-  - resources/github.com-rolebinding.yaml
-  - resources/github-event-workflowtemplate.yaml
-  - resources/event-consumer-workfloweventbinding.yaml
   - resources/workflow-count-resourcequota.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
-  - resources/artifacts-cronworkflow.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
-  - resources/ci-cronworkflow.yaml
+  - resources/rbac/read-only-clusterrole.yaml
+  - resources/rbac/read-only-namespaced-clusterrole.yaml
+  - resources/rbac/read-write-namespaced-clusterrole.yaml
 
-patchesStrategicMerge:
-  - overlays/workflow-controller-configmap.yaml
-  - overlays/argo-server-role.yaml
-  - overlays/argo-server-sa.yaml
-  - overlays/argo-server-deploy.yaml
-
-namespace: argo
+patches:
+  - path: overlays/argo-server-deploy.yaml
+  - path: overlays/argo-server-sa.yaml
+  - path: overlays/workflow-controller-configmap.yaml
+  - path: overlays/workflow-controller-deploy.yaml
+  - path: overlays/argo-role.yaml
+    options:
+      allowKindChange: true
+      allowNameChange: true
+    target:
+      group: rbac.authorization.k8s.io
+      kind: Role
+      name: argo-role
+  - path: overlays/argo-rolebinding.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argo-binding
+  - path: overlays/argo-server-role.yaml
+    options:
+      allowKindChange: true
+      allowNameChange: true
+    target:
+      group: rbac.authorization.k8s.io
+      kind: Role
+      name: argo-server-role
+  - path: overlays/argo-server-rolebinding.yaml
+    target:
+      group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: argo-server-binding

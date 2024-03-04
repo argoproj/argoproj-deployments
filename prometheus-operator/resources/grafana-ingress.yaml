@@ -4,9 +4,9 @@ metadata:
   name: grafana-ingress
   annotations:
     ingress.kubernetes.io/proxy-body-size: 100M
-    kubernetes.io/ingress.class: "nginx"
     ingress.kubernetes.io/app-root: "/"
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - grafana.apps.argoproj.io

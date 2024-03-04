@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: workflow-playground
+
+resources:
+  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
+  - resources/auth/read-write-sa-secret.yaml
+  - resources/auth/read-write-sa.yaml
+  - resources/auth/user-default-login-sa-secret.yaml
+  - resources/auth/user-default-login-sa.yaml
+  - resources/rbac/github.com-rolebinding.yaml
+  - resources/rbac/github.com-sa.yaml
+  - resources/rbac/read-only-clusterrolebinding.yaml
+  - resources/rbac/read-only-rolebinding.yaml
+  - resources/rbac/read-write-rolebinding.yaml
+  - resources/rbac/submit-workflow-template-role.yaml
+  - resources/rbac/workflow-role.yaml
+  - resources/rbac/workflow-rolebinding.yaml
+  - resources/rbac/workflow-sa.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
+  - resources/workflows/artifacts-cronworkflow.yaml
+  - resources/workflows/ci-cronworkflow.yaml
+  - resources/workflows/coinflip-cronworkflow.yaml
+  - resources/workflows/coinflip-workflowtemplate.yaml
+  - resources/workflows/event-consumer-workfloweventbinding.yaml
+  - resources/workflows/github-event-workflowtemplate.yaml

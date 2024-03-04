@@ -1,0 +1,6 @@
+- op: replace
+  path: /kind
+  value: ClusterRole
+- op: replace
+  path: /metadata/name
+  value: argo-workflows-argo-role

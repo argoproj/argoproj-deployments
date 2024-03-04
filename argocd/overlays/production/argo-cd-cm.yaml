@@ -18,7 +18,7 @@ data:
       name: GitHub
       config:
         clientID: fb563b3a8dd7ea52f683
-        clientSecret: $dex.github.clientSecret
+        clientSecret: $argocd-auth:dex.github.clientSecret
         orgs:
         - name: argoproj
           teams:
