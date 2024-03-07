@@ -1,0 +1,8 @@
+sealed-secrets:
+  metrics:
+    serviceMonitor:
+      enabled: true
+    dashboards:
+      create: true
+  pdb:
+    create: true
