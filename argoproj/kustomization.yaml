@@ -16,4 +16,6 @@ resources:
   - base/istio-controlplane.yaml
   - base/istio-operator.yaml
   - base/prometheus-operator.yaml
+  - base/sync-argoproj.yaml
+  - base/sync-example-apps.yaml
   - base/workflow-examples.yaml
