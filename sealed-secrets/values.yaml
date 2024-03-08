@@ -4,5 +4,3 @@ sealed-secrets:
       enabled: true
     dashboards:
       create: true
-  pdb:
-    create: true
