@@ -1,6 +1,6 @@
 # argoproj-deployments
 
-This repository contains the infrastructure definition of the Argoproj [fficial Demo](cd.). To learn more about Argoproj, visit [argoproj.io](https://argoproj.github.io/).
+This repository contains the infrastructure definition of the Argoproj [Official Demo](https://cd.apps.argoproj.io/). To learn more about Argoproj, visit [argoproj.io](https://argoproj.github.io/).
 
 ## Applications
 
@@ -15,7 +15,7 @@ This repository contains the infrastructure definition of the Argoproj [fficial 
 | [![App Status][badge_dex]][app_dex]                               | [Dex](https://dexidp.io/)                                                       |                                                                   |
 | [![App Status][badge_external_dns]][app_external_dns]             | [External-DNS](https://kubernetes-sigs.github.io/external-dns)                  |                                                                   |
 | [![App Status][badge_governor]][app_governor]                     | [Governor](https://github.com/keikoproj/governor)                               |                                                                   |
-| [![App Status][badge_ingress_nginx]][app_ingress_nginx]           | [Ingress NGXIN](https://docs.nginx.com/nginx-ingress-controller/overview/)      |                                                                   |
+| [![App Status][badge_ingress_nginx]][app_ingress_nginx]           | [Ingress NGINX](https://docs.nginx.com/nginx-ingress-controller/overview/)      |                                                                   |
 | [![App Status][badge_istio_addons]][app_istio_addons]             | [Istio Addons](https://github.com/istio/istio/tree/master/samples/addons)       |                                                                   |
 | [![App Status][badge_istio]][app_istio]                           | [Istio](https://istio.io/)                                                      |                                                                   |
 | [![App Status][badge_istio_operator]][app_istio_operator]         | [Istio Operator](https://istio.io/latest/docs/setup/install/operator/)          |                                                                   |

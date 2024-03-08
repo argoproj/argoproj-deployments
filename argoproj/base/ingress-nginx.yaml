@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: ingress-nginx
   namespace: argocd
-  ### Just as a prevention, we do not want ArgoCD to destruct it's dependencies
+  ### Just as a prevention, we do not want Argo CD to destruct it's dependencies
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
 spec:

@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: argo-cd
   namespace: argocd
-  ### Just as a prevention, we do not want ArgoCD to self delete
+  ### Just as a prevention, we do not want Argo CD to self delete
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -18,7 +18,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    ### Disable ArgoCD auto-sync to better control updates of what is merged upstream
+    ### Disable Argo CD auto-sync to better control updates of what is merged upstream
     # automated:
     #   prune: true
     #   selfHeal: true

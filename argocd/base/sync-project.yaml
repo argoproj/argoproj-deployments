@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: Prune=false
 spec:
-  description: Project used to Sync the ArgoCD Application and ApplicationSet CR
+  description: Project used to Sync the Argo CD Application and ApplicationSet CR
   namespaceResourceWhitelist:
     - group: argoproj.io
       kind: Application
