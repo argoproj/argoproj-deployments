@@ -7,6 +7,7 @@ resources:
   - ./resources/grafana-certificate.yaml
   - ./resources/grafana-ingress.yaml
   - ./resources/grafana-issuer.yaml
+  - ./resources/grafana-secret.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
