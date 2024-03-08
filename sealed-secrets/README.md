@@ -14,8 +14,10 @@ brew install kubeseal
 
 ### Encrypt secret values
 
+Secrets a encrypted for a specific name and namespace.
+
 ```bash
-echo -n "my secret value" | kubeseal --raw --namespace <TARGET_SECRET_NAMESPACE> --name <TARGET_SECRET_NAME> --controller-name=sealed-secrets --controller-namespace=sealed-secrets --validate
+echo -n "my secret value" | kubeseal --raw --namespace <TARGET_SECRET_NAMESPACE> --name <TARGET_SECRET_NAME> --controller-name=sealed-secrets --controller-namespace=sealed-secrets
 ```
 
 ### Validate sealed secrets
