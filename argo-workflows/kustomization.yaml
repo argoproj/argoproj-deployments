@@ -45,3 +45,9 @@ patches:
       group: rbac.authorization.k8s.io
       kind: RoleBinding
       name: argo-server-binding
+  - path: overlays/patch-priority-class.yaml
+    target:
+      kind: Deployment
+  - path: overlays/patch-priority-class.yaml
+    target:
+      kind: StatefulSet
