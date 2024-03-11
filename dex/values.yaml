@@ -1,6 +1,8 @@
 dex:
   replicaCount: 1
 
+  priorityClassName: cluster-medium
+
   configSecret:
     # TODO: need to manually create configs as a Secret
     create: false
