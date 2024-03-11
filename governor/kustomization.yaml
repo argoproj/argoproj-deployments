@@ -9,12 +9,14 @@ images:
     newName: keikoproj/governor
     newTag: v0.4.1
 
-patchesStrategicMerge:
-  - pod-reaper-cr.yaml
-
 patches:
-  - path: pod-reaper-job-patch.yaml
+  - path: overlays/pod-reaper-cr.yaml
+  - path: overlays/pod-reaper-job-patch.yaml
     target:
       group: batch
       kind: CronJob
       name: pod-reaper
+  - path: overlays/patch-priority-class.yaml
+    target:
+      group: batch
+      kind: CronJob
