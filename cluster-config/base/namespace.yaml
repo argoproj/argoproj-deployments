@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false, Delete=false
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cert-manager
+---
