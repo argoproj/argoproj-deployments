@@ -7,8 +7,10 @@ resources:
   - resources/argo-rolebinding.yaml
   - resources/argo-server-ingress.yaml
   - resources/argo-server-rolebinding.yaml
+  - resources/argo-server-sso-secret.yaml
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
+  - resources/argo-workflows-webhook-clients-secret.yaml
   - resources/workflow-count-resourcequota.yaml
   - resources/rbac/read-only-clusterrole.yaml
   - resources/rbac/read-only-namespaced-clusterrole.yaml
