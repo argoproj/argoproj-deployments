@@ -4,5 +4,7 @@ metadata:
   name: argocd-rbac-cm
 data:
   policy.csv: |
-    g, argoproj:argo-cd-admins, role:admin
+    g, argoproj:argo-rollouts-approvers, role:admin
+    g, argoproj:argo-workflows-approvers, role:admin
+    g, argoproj:argocd-approvers, role:admin
   policy.default: role:readonly
