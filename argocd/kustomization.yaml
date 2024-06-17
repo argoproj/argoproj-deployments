@@ -25,4 +25,4 @@ patches:
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 2.12.0-e5c0526d
+  newTag: 2.12.0-89a0cc33
