@@ -16,4 +16,5 @@ resources:
   - base/istio-controlplane.yaml
   - base/istio-operator.yaml
   - base/prometheus-operator.yaml
+  - base/sealed-secrets.yaml
   - base/workflow-examples.yaml
