@@ -21,6 +21,12 @@ patches:
 - path: overlays/production/argocd-cmd-params-cm.yaml
 - path: overlays/production/argocd-rbac-cm.yaml
 - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+- path: overlays/production/patch-priority-class.yaml
+  target:
+    kind: Deployment
+- path: overlays/production/patch-priority-class.yaml
+  target:
+    kind: StatefulSet
 
 images:
 - name: quay.io/argoproj/argocd
