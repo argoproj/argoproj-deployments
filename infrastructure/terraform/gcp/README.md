@@ -47,6 +47,7 @@ components. Some componenets that are dependencies for ArgoCD to work properly, 
 need to be deployed manually first.
 
 ```
+kubectl apply -k cluster-config -n kube-system
 kubectl apply -k cert-manager -n cert-manager
 kubectl apply -k argocd -n argocd
 // If the apply for argocd fails, run it again. It might fail the first time due to missing CRDs

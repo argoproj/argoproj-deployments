@@ -1,0 +1,7 @@
+kube-prometheus-stack:
+  alertmanager:
+    alertmanagerSpec:
+      priorityClassName: cluster-low
+  prometheus:
+    prometheusSpec:
+      priorityClassName: cluster-low
