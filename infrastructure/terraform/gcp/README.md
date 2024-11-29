@@ -19,7 +19,7 @@ In a new account, the modules can be deployed in the following order:
 3. Network
 4. GKE
 
-Once a cluster has been provisioned, ArgoCD is used to deploy applications into it.
+Once a cluster has been provisioned, Argo CD is used to deploy applications into it.
 
 ### [User access](./user-access/README.md)
 
@@ -42,8 +42,8 @@ The GKE module provision one or more GKE clusters.
 
 ## Argo CD deployment
 
-After the GKE cluster is deployed, you can deploy ArgoCD on it and use Applications resources to provision other
-components. Some componenets that are dependencies for ArgoCD to work properly, such as Certificate Manager, will
+After the GKE cluster is deployed, you can deploy Argo CD on it and use Applications resources to provision other
+components. Some componenets that are dependencies for Argo CD to work properly, such as Certificate Manager, will
 need to be deployed manually first.
 
 ```
