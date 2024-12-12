@@ -1,0 +1,27 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: cluster-critical
+value: 99999999
+description: >-
+  Custom priority class for critical cluster components
+globalDefault: false
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: cluster-medium
+value: 50000000
+description: >-
+  Custom priority class for important cluster components
+globalDefault: false
+---
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: cluster-low
+value: 10000000
+description: >-
+  Custom priority class for cluster components
+globalDefault: false
+---
