@@ -7,23 +7,22 @@ resources:
 - base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
 - base/argo-cd-ui-ingress.yaml
-- base/jenkins-ingress.yaml
 - base/rollouts-extension.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
 
 components:
 - https://github.com/argoproj-labs/argocd-extensions/manifests
 
-patchesStrategicMerge:
-- overlays/production/argo-cd-cm.yaml
-- overlays/production/argocd-server-service.yaml
-- overlays/production/argocd-repo-server-deploy.yaml
-- overlays/production/argocd-notifications-controller-deploy.yaml
-- overlays/production/argocd-notifications-cm.yaml
-- overlays/production/argocd-cmd-params-cm.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+patches:
+- path: overlays/production/argo-cd-cm.yaml
+- path: overlays/production/argocd-server-service.yaml
+- path: overlays/production/argocd-notifications-controller-deploy.yaml
+- path: overlays/production/argocd-notifications-cm.yaml
+- path: overlays/production/argocd-cmd-params-cm.yaml
+- path: overlays/production/argocd-rbac-cm.yaml
+- path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
 
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 2.8.0-ec0cb9db
+  newTag: 3.0.0-606bd5b0

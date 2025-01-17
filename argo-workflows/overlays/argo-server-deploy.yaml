@@ -12,6 +12,8 @@ spec:
           args:
             - server
             - --namespaced
+            - --managed-namespace
+            - workflow-playground
             - --auth-mode=sso
             - --auth-mode=client
             - --x-frame-options=SAMEORIGIN

@@ -1,0 +1,30 @@
+dex:
+  replicaCount: 1
+
+  configSecret:
+    # TODO: need to manually create configs as a Secret
+    create: false
+    name: 'dex'
+
+  rbac:
+    create: true
+    createClusterScoped: false
+
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      ingress.kubernetes.io/proxy-body-size: 100M
+      ingress.kubernetes.io/app-root: '/'
+    hosts:
+      - host: dex.apps.argoproj.io
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: dex-secret
+        hosts:
+          - dex.apps.argoproj.io
+
+  serviceMonitor:
+    enabled: true

@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: governor
+  namespace: argocd
 spec:
   destination:
     namespace: governor
@@ -11,3 +12,9 @@ spec:
     path: governor
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

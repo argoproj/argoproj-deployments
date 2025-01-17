@@ -1,0 +1,4 @@
+### Currently, personal gmails are in the variable file.
+### Exclude it for now to not expose them until a data source
+### is decided to store them.
+*.tfvars

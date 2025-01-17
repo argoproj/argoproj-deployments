@@ -1,4 +1,4 @@
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: grafana-cert
@@ -9,4 +9,4 @@ spec:
     kind: Issuer
   commonName: grafana.apps.argoproj.io
   dnsNames:
-  - grafana.apps.argoproj.io
+    - grafana.apps.argoproj.io

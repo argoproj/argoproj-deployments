@@ -5,12 +5,12 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: amatyushentsev@gmail.com
+    email: argoproj@gmail.com
     privateKeySecretRef:
       name: letsencrypt
     solvers:
-    # An empty 'selector' means that this solver matches all domains
-    - selector: {}
-      http01:
-        ingress:
-          class: nginx
+      # An empty 'selector' means that this solver matches all domains
+      - selector: {}
+        http01:
+          ingress:
+            class: nginx
