@@ -32,7 +32,7 @@ spec:
                       value: hello world
                 templates:
                   - name: main
-                    serviceAccountName: argo
+                    serviceAccountName: workflow
                     inputs:
                       parameters:
                         - name: message
