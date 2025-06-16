@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: istio-operator
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   source:
     repoURL: https://github.com/istio/istio
