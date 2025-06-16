@@ -4,31 +4,32 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-- base/argo-cd-issuer.yaml
-- base/argo-cd-certificate.yaml
-- base/argo-cd-ui-ingress.yaml
-- base/rollouts-extension.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
+  - base/argo-cd-issuer.yaml
+  - base/argo-cd-certificate.yaml
+  - base/argo-cd-ui-ingress.yaml
+  - base/rollouts-extension.yaml
+  - base/sync-project.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
 
 components:
-- https://github.com/argoproj-labs/argocd-extensions/manifests
+  - https://github.com/argoproj-labs/argocd-extensions/manifests
 
 patches:
-- path: overlays/production/argo-cd-cm.yaml
-- path: overlays/production/argocd-server-service.yaml
-- path: overlays/production/argocd-notifications-controller-deploy.yaml
-- path: overlays/production/argocd-notifications-cm.yaml
-- path: overlays/production/argocd-cmd-params-cm.yaml
-- path: overlays/production/argocd-rbac-cm.yaml
-- path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
-- path: overlays/production/patch-priority-class.yaml
-  target:
-    kind: Deployment
-- path: overlays/production/patch-priority-class.yaml
-  target:
-    kind: StatefulSet
+  - path: overlays/production/argo-cd-cm.yaml
+  - path: overlays/production/argocd-cmd-params-cm.yaml
+  - path: overlays/production/argocd-notifications-cm.yaml
+  - path: overlays/production/argocd-notifications-controller-deploy.yaml
+  - path: overlays/production/argocd-rbac-cm.yaml
+  - path: overlays/production/argocd-server-service.yaml
+  - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+  - path: overlays/production/patch-priority-class.yaml
+    target:
+      kind: Deployment
+  - path: overlays/production/patch-priority-class.yaml
+    target:
+      kind: StatefulSet
 
 images:
-- name: quay.io/argoproj/argocd
-  newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 3.1.0-4731c61d
+  - name: quay.io/argoproj/argocd
+    newName: ghcr.io/argoproj/argo-cd/argocd
+    newTag: 3.1.0-df5ff1f7
