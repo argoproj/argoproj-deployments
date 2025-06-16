@@ -1,7 +1,7 @@
 name               = "argo-demo-apps"
 description        = "Cluster for deploying https://github.com/argoproj/argoproj-deployments"
 region             = "us-central1"
-kubernetes_version = "1.29"
+kubernetes_version = "1.33"
 release_channel    = "RAPID"
 
 vpc           = "gke-vpc"
