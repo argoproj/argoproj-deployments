@@ -45238,6 +45238,7 @@ spec:
     runAsUser: 1000
     seccompProfile:
       type: RuntimeDefault
+  priorityClassName: cluster-low
   portName: http-web
 ---
 # Source: prometheus-operator/charts/kube-prometheus-stack/templates/prometheus-operator/admission-webhooks/mutatingWebhookConfiguration.yaml
@@ -45351,6 +45352,7 @@ spec:
       release: "prometheus-operator"
 
   scrapeConfigNamespaceSelector: {}
+  priorityClassName: cluster-low
   portName: http-web
   hostNetwork: false
 ---

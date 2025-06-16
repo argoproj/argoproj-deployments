@@ -18,19 +18,23 @@ configMapGenerator:
     files:
       - dashboard.json
 
-patchesJson6902:
-  - target:
+patches:
+  - path: overlays/prometheus-operator-grafana-cm.yaml
+  - path: overlays/prometheus-operator-grafana-secret.yaml
+    target:
       name: prometheus-operator-grafana
       namespace: prometheus-operator
       version: v1
       kind: Secret
-    path: overlays/prometheus-operator-grafana-secret.yaml
-  - target:
+  - path: overlays/prometheus-crds-annotations.yaml
+    target:
       name: .*
       version: v1
       group: apiextensions.k8s.io
       kind: CustomResourceDefinition
-    path: overlays/prometheus-crds-annotations.yaml
-
-patchesStrategicMerge:
-  - overlays/prometheus-operator-grafana-cm.yaml
+  - path: overlays/patch-priority-class.yaml
+    target:
+      kind: Deployment
+  - path: overlays/patch-priority-class.yaml
+    target:
+      kind: StatefulSet

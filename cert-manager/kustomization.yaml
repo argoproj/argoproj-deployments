@@ -6,3 +6,6 @@ resources:
 
 patches:
   - path: overlays/cert-manager-namespace.yaml
+  - path: overlays/patch-priority-class.yaml
+    target:
+      kind: Deployment
