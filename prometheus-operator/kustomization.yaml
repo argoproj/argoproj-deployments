@@ -11,7 +11,7 @@ resources:
 generatorOptions:
   disableNameSuffixHash: true
   labels:
-    grafana_dashboard: argocd
+    grafana_dashboard: '1'
 
 configMapGenerator:
   - name: argocd-dashboard-cm
