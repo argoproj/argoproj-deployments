@@ -22,7 +22,9 @@ data:
         orgs:
         - name: argoproj
           teams:
-          - argo-cd-admins
+          - argo-rollouts-approvers
+          - argo-workflows-approvers
+          - argocd-approvers
 kind: ConfigMap
 metadata:
   name: argocd-cm

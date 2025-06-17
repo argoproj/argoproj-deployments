@@ -1,19 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio-controlplane
+  name: cluster-config
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
+  project: default
   source:
-    path: istio-controlplane
+    path: cluster-config
     repoURL: https://github.com/argoproj/argoproj-deployments
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio-system
-  project: default
+    namespace: kube-system
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

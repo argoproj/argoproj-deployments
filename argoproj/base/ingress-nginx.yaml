@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: ingress-nginx
   namespace: argocd
+  ### Just as a prevention, we do not want Argo CD to destruct it's dependencies
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: ingress-nginx
@@ -12,6 +15,10 @@ spec:
     repoURL: https://kubernetes.github.io/ingress-nginx
     chart: ingress-nginx
     targetRevision: 4.9.1
+    helm:
+      valuesObject:
+        controller:
+          priorityClassName: cluster-critical
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

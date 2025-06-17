@@ -3,21 +3,11 @@ kind: Role
 metadata:
   name: workflow
 rules:
-  # pod get/watch is used to identify the container IDs of the current pod
-  # pod patch is used to annotate the step's outputs back to controller (e.g. artifact location)
+  # WFT is used to pass information back to the controller
   - apiGroups:
-      - ""
+      - argoproj.io
     resources:
-      - pods
+      - workflowtaskresults
     verbs:
-      - get
-      - watch
+      - create
       - patch
-  # logs get/watch are used to get the pods logs for script outputs, and for log archival
-  - apiGroups:
-      - ""
-    resources:
-      - pods/log
-    verbs:
-      - get
-      - watch

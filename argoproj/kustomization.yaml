@@ -7,6 +7,7 @@ resources:
   - base/argo-rollouts.yaml
   - base/argo-workflows.yaml
   - base/argocd-image-updater.yaml
+  - base/cluster-config.yaml
   - base/cert-manager.yaml
   - base/dex.yaml
   - base/external-dns.yaml
@@ -16,4 +17,6 @@ resources:
   - base/istio-controlplane.yaml
   - base/istio-operator.yaml
   - base/prometheus-operator.yaml
+  - base/sync-argoproj.yaml
+  - base/sync-example-apps.yaml
   - base/workflow-examples.yaml

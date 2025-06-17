@@ -10,10 +10,13 @@ external-dns:
   extraArgs:
     - --google-project=argo-demo-apps
 
+  priorityClassName: cluster-critical
+
   logFormat: json
   logLevel: info
   serviceMonitor:
-    enabled: false
+    enabled: true
+
   serviceAccount:
     annotations:
       iam.gke.io/gcp-service-account: external-dns@argo-demo-apps.iam.gserviceaccount.com
