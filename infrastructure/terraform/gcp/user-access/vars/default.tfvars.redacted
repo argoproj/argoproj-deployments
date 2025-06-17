@@ -2,6 +2,7 @@ account_admins = [
   // Alexandre Gaudreault
   // Leonardo Almeida
   // Zach Aller
+  // Michael Crenshaw
 ]
 
 admins = [
@@ -11,7 +12,6 @@ k8s_admins = [
 ]
 
 k8s_viewers = [
-  // Michael Crenshaw
 ]
 
 state_bucket = "7612a8-argoproj-bucket-tfstate"
