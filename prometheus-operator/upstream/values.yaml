@@ -5,3 +5,6 @@ kube-prometheus-stack:
   prometheus:
     prometheusSpec:
       priorityClassName: cluster-low
+  grafana:
+    adminUser: admin
+    adminPassword: argoDemo123

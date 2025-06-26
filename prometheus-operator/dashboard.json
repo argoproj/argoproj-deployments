@@ -606,7 +606,44 @@
               "links": [],
               "unitScale": true
             },
-            "overrides": []
+            "overrides": [
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Degraded" } },
+                "properties": [
+                  { "id": "color", "value": "semi-dark-red" }
+                ]
+              },
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Healthy" } },
+                "properties": [
+                  { "id": "color", "value": "green" }
+                ]
+              },
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Missing" } },
+                "properties": [
+                  { "id": "color", "value": "semi-dark-purple" }
+                ]
+              },
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Progressing" } },
+                "properties": [
+                  { "id": "color", "value": "semi-dark-blue" }
+                ]
+              },
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Suspended" } },
+                "properties": [
+                  { "id": "color", "value": "semi-dark-orange" }
+                ]
+              },
+              {
+                "matcher": { "id": "byValue", "options": { "value": "Unknown" } },
+                "properties": [
+                  { "id": "color", "value": "rgb(255, 255, 255)" }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 6,
