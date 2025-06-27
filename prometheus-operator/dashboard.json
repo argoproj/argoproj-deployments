@@ -608,39 +608,57 @@
             },
             "overrides": [
               {
-                "matcher": { "id": "byValue", "options": { "value": "Degraded" } },
+                "matcher": {"id": "byName", "options": "Degraded"},
                 "properties": [
-                  { "id": "color", "value": "semi-dark-red" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "#E02F44", "mode": "fixed"}
+                  }
                 ]
               },
               {
-                "matcher": { "id": "byValue", "options": { "value": "Healthy" } },
+                "matcher": {"id": "byName", "options": "Healthy"},
                 "properties": [
-                  { "id": "color", "value": "green" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "green", "mode": "fixed"}
+                  }
                 ]
               },
               {
-                "matcher": { "id": "byValue", "options": { "value": "Missing" } },
+                "matcher": { "id": "byName", "options": "Missing" },
                 "properties": [
-                  { "id": "color", "value": "semi-dark-purple" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "semi-dark-purple", "mode": "fixed"}
+                  }
                 ]
               },
               {
-                "matcher": { "id": "byValue", "options": { "value": "Progressing" } },
+                "matcher": { "id": "byName", "options": "Progressing"},
                 "properties": [
-                  { "id": "color", "value": "semi-dark-blue" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "semi-dark-blue","mode": "fixed"}
+                  }
                 ]
               },
               {
-                "matcher": { "id": "byValue", "options": { "value": "Suspended" } },
+                "matcher": { "id": "byName", "options": "Suspended"},
                 "properties": [
-                  { "id": "color", "value": "semi-dark-orange" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "semi-dark-orange","mode": "fixed"}
+                  }
                 ]
               },
               {
-                "matcher": { "id": "byValue", "options": { "value": "Unknown" } },
+                "matcher": {"id": "byName","options":  "Unknown"},
                 "properties": [
-                  { "id": "color", "value": "rgb(255, 255, 255)" }
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "semi-dark-orange","mode": "fixed"}
+                  }
                 ]
               }
             ]
