@@ -699,7 +699,35 @@
               "links": [],
               "unitScale": true
             },
-            "overrides": []
+            "overrides": [
+              {
+                "matcher": {"id": "byName", "options": "OutOfSync"},
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "#E02F44", "mode": "fixed"}
+                  }
+                ]
+              },
+              {
+                "matcher": {"id": "byName", "options": "Synced"},
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "green", "mode": "fixed"}
+                  }
+                ]
+              },
+              {
+                "matcher": {"id": "byName", "options": "Unknown"},
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": { "fixedColor": "semi-dark-orange", "mode": "fixed"}
+                  }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 6,
