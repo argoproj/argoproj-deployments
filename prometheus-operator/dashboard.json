@@ -1840,7 +1840,10 @@
             "y": 38
           },
           "id": 54,
-          "options": {},
+          "options": {
+             "content": "#### gRPC Services:",
+             "mode": "markdown"
+          },
           "title": "",
           "transparent": true,
           "type": "text"
