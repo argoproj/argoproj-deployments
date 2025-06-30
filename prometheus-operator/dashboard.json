@@ -808,7 +808,12 @@
             "uid": "$datasource"
           },
           "fieldConfig": {
-            "defaults": {},
+            "defaults": {
+              "color": {
+                "fixedColor": "semi-dark-orange",
+                "mode": "fixed"
+              }
+            },
             "overrides": []
           },
           "gridPos": {
