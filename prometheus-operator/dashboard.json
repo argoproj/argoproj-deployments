@@ -670,24 +670,21 @@
             "y": 6
           },
           "id": 105,
-          "options": {
-            "alertThreshold": true
-          },
-          "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "sideWidth": null,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
+         "options": {
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "10.3.1",
           "targets": [
@@ -753,23 +750,20 @@
           },
           "id": 106,
           "options": {
-            "alertThreshold": true
-          },
-          "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": false,
-            "min": false,
-            "rightSide": true,
-            "show": true,
-            "sideWidth": null,
-            "sort": "current",
-            "sortDesc": true,
-            "total": false,
-            "values": true
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "10.3.1",
           "targets": [
@@ -818,7 +812,30 @@
           },
           "id": 56,
           "options": {
-            "dataLinks": []
+            "legend": {
+              "avg": false,
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "hideEmpty": true,
+              "hideZero": true,
+              "max": false,
+              "min": false,
+              "placement": "right",
+              "rightSide": true,
+              "show": true,
+              "showLegend": true,
+              "sort": "total",
+              "sortDesc": true,
+              "total": true,
+              "values": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -856,7 +873,20 @@
           },
           "id": 73,
           "options": {
-            "dataLinks": []
+            "dataLinks": [],
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -903,7 +933,24 @@
           },
           "id": 58,
           "options": {
-            "dataLinks": []
+            "dataLinks": [],
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "mean",
+                "max",
+                "sum"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "values": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -968,7 +1015,21 @@
           },
           "id": 80,
           "options": {
-            "dataLinks": []
+            "dataLinks": [],
+            "legend": {
+              "calcs": [
+                "mean",
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -1002,7 +1063,22 @@
           },
           "id": 96,
           "options": {
-            "dataLinks": []
+            "dataLinks": [],
+            "legend": {
+              "calcs": [
+                "max",
+                "mean",
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -1035,7 +1111,22 @@
           },
           "id": 98,
           "options": {
-            "dataLinks": []
+            "dataLinks": [],
+            "legend": {
+              "calcs": [
+                "max",
+                "mean",
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -1086,7 +1177,23 @@
           },
           "id": 34,
           "options": {
-            "alertThreshold": true
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "max",
+                "mean",
+                "lastNotNull",
+                "current"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "10.3.1",
           "targets": [
@@ -1123,7 +1230,22 @@
           },
           "id": 108,
           "options": {
-            "alertThreshold": true
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "max",
+                "mean",
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "10.3.1",
           "targets": [
@@ -1160,7 +1282,22 @@
           },
           "id": 62,
           "options": {
-            "alertThreshold": true
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "max",
+                "mean",
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "pluginVersion": "10.3.1",
           "targets": [
@@ -1334,7 +1471,20 @@
           },
           "id": 90,
           "options": {
-            "dataLinks": []
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -1367,7 +1517,20 @@
           },
           "id": 92,
           "options": {
-            "dataLinks": []
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
@@ -1400,7 +1563,20 @@
           },
           "id": 86,
           "options": {
-            "dataLinks": []
+            "alertThreshold": true,
+            "legend": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
           },
           "targets": [
             {
