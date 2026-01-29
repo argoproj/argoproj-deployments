@@ -27,7 +27,7 @@ This repository contains the infrastructure definition of the Argoproj [Official
 | [![App Status][badge_prometheus]][app_prometheus]                 | [Prometheus](https://prometheus.io/)                                            | [grafana.apps.argoproj.io](https://grafana.apps.argoproj.io/)     |
 | [![App Status][badge_sync_argoproj]][app_sync_argoproj]           | [Sync Argoproj](https://github.com/argoproj/argoproj-deployments)               |                                                                   |
 | [![App Status][badge_sync_example_apps]][app_sync_example_apps]   | [Sync Example Apps](https://github.com/argoproj/argocd-example-apps)            |                                                                   |
-| [![App Status][badge_workflow_example]][app_workflow_example]     | [Workfolw Examples](https://github.com/argoproj-labs/argo-workflows-catalog)    |                                                                   |
+| [![App Status][badge_workflow_example]][app_workflow_example]     | [Workflow Examples](https://github.com/argoproj-labs/argo-workflows-catalog)    |                                                                   |
 
 ## Infrastructure
 
