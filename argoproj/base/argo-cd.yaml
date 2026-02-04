@@ -19,7 +19,6 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-      - ClientSideApplyMigration=false
     ### Disable Argo CD auto-sync to better control updates of what is merged upstream
     # automated:
     #   prune: true
