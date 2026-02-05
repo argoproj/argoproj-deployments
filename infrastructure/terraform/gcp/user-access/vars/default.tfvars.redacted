@@ -3,13 +3,13 @@ account_admins = [
   // "user:<Zach Aller@example.com>",
   // "user:<Michael Crenshaw@example.com>",
   // "user:<Leonardo Almeida@example.com>",
+  // "user:<Regina Voloshin@example.com>",
 ]
 
 admins = [
 ]
 
 k8s_admins = [
-  // "user:<Regina Voloshin@example.com>",
 ]
 
 k8s_viewers = [
