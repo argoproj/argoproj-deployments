@@ -28,6 +28,13 @@ To initialize the permission, the module needs to be deployed locally, then impo
 3. When the remote state is created, update the variable `state_bucket`, and add the `backend` configuration to the `terraform.tf` file.
 4. Finally, run `make plan`. It will ask you if you want to migrate your local state file to the remote state. Enter `yes`. Delete the local state files on success.
 
+### Add a new user
+
+1. Make a copy of the vars/default.tfvars.redacted file: `cp vars/default.tfvars.redacted vars/default.tfvars`
+2. Replace the redacted names of users with their email addresses, which can be found here: https://console.cloud.google.com/iam-admin/iam?authuser=1&project=argo-demo-apps
+3. Add the email address of the new user to the corresponding list of permissions (e.g. `account_admins` for admin permissions, `k8s_admins` for Kubernetes admin permissions, etc.)
+4. Proceed to "Deploy changes"
+
 ### Deploy changes
 
 To apply changes to the module, log in with a user that is currently an admin and run the following commands
