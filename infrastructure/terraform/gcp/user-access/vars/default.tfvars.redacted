@@ -1,14 +1,15 @@
 account_admins = [
-  // Alexandre Gaudreault
-  // Leonardo Almeida
-  // Zach Aller
-  // Michael Crenshaw
+  // "user:<Alexandre Gaudreault@example.com>",
+  // "user:<Zach Aller@example.com>",
+  // "user:<Michael Crenshaw@example.com>",
+  // "user:<Leonardo Almeida@example.com>",
 ]
 
 admins = [
 ]
 
 k8s_admins = [
+  // "user:<Regina Voloshin@example.com>",
 ]
 
 k8s_viewers = [
