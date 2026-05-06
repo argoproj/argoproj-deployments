@@ -8,7 +8,7 @@ resources:
   - ./resources/grafana-certificate.yaml
   - ./resources/grafana-ingress.yaml
   - ./resources/grafana-issuer.yaml
-
+  - ./grafana-dashboard.yaml
 generatorOptions:
   disableNameSuffixHash: true
   labels:
