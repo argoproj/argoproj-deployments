@@ -7,12 +7,8 @@ resources:
 - base/argo-cd-issuer.yaml
 - base/argo-cd-certificate.yaml
 - base/argo-cd-ui-ingress.yaml
-- base/rollouts-extension.yaml
 - base/sync-project.yaml
-- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install.yaml
-
-components:
-- https://github.com/argoproj-labs/argocd-extensions/manifests
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
 
 patches:
 - path: overlays/production/argo-cd-cm.yaml
@@ -21,6 +17,7 @@ patches:
 - path: overlays/production/argocd-notifications-controller-deploy.yaml
 - path: overlays/production/argocd-rbac-cm.yaml
 - path: overlays/production/argocd-server-service.yaml
+- path: overlays/production/rollouts-extension.yaml
 - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
 - path: overlays/production/patch-priority-class.yaml
   target:
