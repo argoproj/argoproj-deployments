@@ -1,8 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argocd
-
 resources:
   - base/argo-cd-issuer.yaml
   - base/argo-cd-certificate.yaml
@@ -11,9 +9,7 @@ resources:
   - base/projects/team-frontend-project.yaml
   - base/projects/team-backend-project.yaml
   - base/projects/team-platform-project.yaml
-  - base/namespaces/team-frontend.yaml
-  - base/namespaces/team-backend.yaml
-  - base/namespaces/team-platform.yaml
+  - base/namespaces
   - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
 
 patches:
