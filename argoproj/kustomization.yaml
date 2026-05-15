@@ -6,6 +6,7 @@ resources:
   - base/argo-events.yaml
   - base/argo-rollouts.yaml
   - base/argo-workflows.yaml
+  - base/argocd-extension-metrics.yaml
   - base/argocd-image-updater.yaml
   - base/cluster-config.yaml
   - base/cert-manager.yaml

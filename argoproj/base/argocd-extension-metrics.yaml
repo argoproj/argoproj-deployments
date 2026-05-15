@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd-extension-metrics
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: argocd-extension-metrics
+    repoURL: https://github.com/argoproj/argoproj-deployments
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ClientSideApplyMigration=false
+    ### Disable auto-sync to better control updates of what is merged upstream
+    # automated:
+    #   prune: true
+    #   selfHeal: true
