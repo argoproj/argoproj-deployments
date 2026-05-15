@@ -7,3 +7,12 @@ data:
   server.enable.proxy.extension: 'true'
   applicationsetcontroller.enable.progressive.syncs: 'true'
   hydrator.enabled: 'true'
+
+  ### Enable Apps in any namespace for both controllers
+  application.namespaces: 'team-frontend,team-backend,team-platform'
+  applicationsetcontroller.namespaces: 'team-frontend,team-backend,team-platform'
+  # Security controls (moderate level)
+  # Restrict SCM providers to prevent secret exfiltration
+  applicationsetcontroller.allowed.scm.providers: 'https://github.com/argoproj'
+  # Enable strict mode for tokenRef to require proper labeling
+  applicationsetcontroller.tokenref.strict.mode: 'true'
