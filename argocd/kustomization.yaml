@@ -7,7 +7,10 @@ resources:
   - base/argo-cd-issuer.yaml
   - base/argo-cd-certificate.yaml
   - base/argo-cd-ui-ingress.yaml
-  - base/sync-project.yaml
+  - base/projects/sync-project.yaml
+  - base/projects/team-frontend-project.yaml
+  - base/projects/team-backend-project.yaml
+  - base/projects/team-platform-project.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
 
 patches:

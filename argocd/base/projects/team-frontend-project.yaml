@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-frontend
+  namespace: argocd
+spec:
+  description: Project for team-frontend namespace Applications and ApplicationSets
+
+  # Only allow Applications/ApplicationSets from team-frontend namespace
+  sourceNamespaces:
+    - team-frontend
+
+  # Allow deployment to team-frontend namespaces
+  destinations:
+    - namespace: 'team-frontend-*'
+      server: https://kubernetes.default.svc
+    - namespace: 'frontend-*'
+      server: https://kubernetes.default.svc
+
+  # Restrict to specific repositories only
+  sourceRepos:
+    - https://github.com/argoproj/argocd-example-apps
+
+  # Optional: Cluster resource restrictions
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace

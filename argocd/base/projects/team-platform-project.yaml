@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-platform
+  namespace: argocd
+spec:
+  description: Project for team-platform namespace Applications and ApplicationSets
+
+  sourceNamespaces:
+    - team-platform
+
+  destinations:
+    - namespace: 'team-platform-*'
+      server: https://kubernetes.default.svc
+    - namespace: 'platform-*'
+      server: https://kubernetes.default.svc
+    - namespace: 'infra-*'
+      server: https://kubernetes.default.svc
+
+  sourceRepos:
+    - https://github.com/argoproj/argocd-example-apps
+
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
