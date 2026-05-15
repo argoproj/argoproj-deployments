@@ -1,4 +1,7 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
 data:
   application.resourceTrackingMethod: annotation
   admin.enabled: 'false'
@@ -25,6 +28,6 @@ data:
           - argo-rollouts-approvers
           - argo-workflows-approvers
           - argocd-approvers
-kind: ConfigMap
-metadata:
-  name: argocd-cm
+  extension.config.metrics: |-
+    services:
+      - url: http://argocd-metrics-server.argocd-extension-metrics.svc.cluster.local:9003

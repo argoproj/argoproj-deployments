@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-operated
+  namespace: monitoring
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+spec:
+  type: ExternalName
+  ### The extension default configuration expects the prometheus-operated to be in the monitoring namespace
+  ### This redirects the traffic to the correct namespace where prometheus-operator is installed
+  externalName: prometheus-operated.prometheus-operator.svc.cluster.local
+  ports:
+    - name: http-web
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
