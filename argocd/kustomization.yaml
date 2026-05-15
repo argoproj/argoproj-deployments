@@ -11,6 +11,9 @@ resources:
   - base/projects/team-frontend-project.yaml
   - base/projects/team-backend-project.yaml
   - base/projects/team-platform-project.yaml
+  - base/namespaces/team-frontend.yaml
+  - base/namespaces/team-backend.yaml
+  - base/namespaces/team-platform.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
 
 patches:
