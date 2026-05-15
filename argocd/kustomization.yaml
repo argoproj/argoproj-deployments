@@ -2,34 +2,34 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - base/argo-cd-issuer.yaml
-  - base/argo-cd-certificate.yaml
-  - base/argo-cd-ui-ingress.yaml
-  - base/projects/sync-project.yaml
-  - base/projects/team-frontend-project.yaml
-  - base/projects/team-backend-project.yaml
-  - base/projects/team-platform-project.yaml
-  - base/namespaces
-  - https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
+- base/argo-cd-issuer.yaml
+- base/argo-cd-certificate.yaml
+- base/argo-cd-ui-ingress.yaml
+- base/projects/sync-project.yaml
+- base/projects/team-frontend-project.yaml
+- base/projects/team-backend-project.yaml
+- base/projects/team-platform-project.yaml
+- base/namespaces
+- https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/ha/install-with-hydrator.yaml
 
 patches:
-  - path: overlays/production/argo-cd-cm.yaml
-  - path: overlays/production/argocd-cmd-params-cm.yaml
-  - path: overlays/production/argocd-notifications-cm.yaml
-  - path: overlays/production/argocd-notifications-controller-deploy.yaml
-  - path: overlays/production/argocd-rbac-cm.yaml
-  - path: overlays/production/argocd-server-service.yaml
-  - path: overlays/production/rollouts-extension.yaml
-  - path: overlays/production/metrics-extension.yaml
-  - path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
-  - path: overlays/production/patch-priority-class.yaml
-    target:
-      kind: Deployment
-  - path: overlays/production/patch-priority-class.yaml
-    target:
-      kind: StatefulSet
+- path: overlays/production/argo-cd-cm.yaml
+- path: overlays/production/argocd-cmd-params-cm.yaml
+- path: overlays/production/argocd-notifications-cm.yaml
+- path: overlays/production/argocd-notifications-controller-deploy.yaml
+- path: overlays/production/argocd-rbac-cm.yaml
+- path: overlays/production/argocd-server-service.yaml
+- path: overlays/production/rollouts-extension.yaml
+- path: overlays/production/metrics-extension.yaml
+- path: https://raw.githubusercontent.com/argoproj/argo-cd/master/notifications_catalog/install.yaml
+- path: overlays/production/patch-priority-class.yaml
+  target:
+    kind: Deployment
+- path: overlays/production/patch-priority-class.yaml
+  target:
+    kind: StatefulSet
 
 images:
-  - name: quay.io/argoproj/argocd
-    newName: ghcr.io/argoproj/argo-cd/argocd
-    newTag: 3.5.0-438ba7ce
+- name: quay.io/argoproj/argocd
+  newName: ghcr.io/argoproj/argo-cd/argocd
+  newTag: 3.5.0-a39953d2
