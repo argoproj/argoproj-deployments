@@ -5,3 +5,5 @@ metadata:
 data:
   server.insecure: 'true'
   server.enable.proxy.extension: 'true'
+  applicationsetcontroller.enable.progressive.syncs: 'true'
+  hydrator.enabled: 'true'
