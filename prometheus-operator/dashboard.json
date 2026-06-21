@@ -18,7 +18,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1555,
+  "id": null,
+  "liveNow": false,
   "links": [],
   "panels": [
     {
@@ -2360,7 +2361,7 @@
     }
   ],
   "preload": false,
-  "refresh": "",
+  "refresh": "30s",
   "schemaVersion": 41,
   "tags": [],
   "templating": {
@@ -2595,5 +2596,5 @@
   "timezone": "",
   "title": "ArgoCD",
   "uid": "LCAgc9rWz",
-  "version": 7092
+  "version": 1
 }
