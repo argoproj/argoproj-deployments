@@ -38,28 +38,83 @@ module "cloud_router" {
   region  = each.value
 }
 
-# module "argoproj-dns-root" {
-#   source  = "terraform-google-modules/cloud-dns/google"
-#   version = "~> 5.0"
+locals {
+  # Delegation NS records for each child zone (apps/demo/dev), pointing the root
+  # argoproj.io zone at the Cloud DNS name servers of the child zones.
+  # The zone's own apex NS and SOA records are managed automatically by Cloud DNS.
+  argoproj_dns_delegations = [for zone, dns in module.argoproj-dns :
+    {
+      name    = "${zone}.${local.argoproj_domain}"
+      type    = "NS"
+      ttl     = 300
+      records = dns.name_servers
+    }
+  ]
 
-#   project_id = data.google_project.project.project_id
-#   type       = "public"
-#   name       = "argoproj-io"
-#   domain     = local.argoproj_domain
+  # Content records served directly out of the root argoproj.io zone.
+  argoproj_dns_root_records = [
+    {
+      name    = local.argoproj_domain
+      type    = "A"
+      ttl     = 300
+      records = ["104.198.14.52"]
+    },
+    {
+      name    = "www.${local.argoproj_domain}"
+      type    = "A"
+      ttl     = 300
+      records = ["104.198.14.52"]
+    },
+    {
+      name    = "blog.${local.argoproj_domain}"
+      type    = "A"
+      ttl     = 300
+      records = ["162.159.153.4", "162.159.152.4"]
+    },
+  ]
 
-#   enable_logging = false
+  # Content records served out of each child zone, keyed by the zone key in
+  # var.zones. Zones without an entry (e.g. demo, dev) get no extra records; the
+  # zone's own apex NS/SOA are managed automatically by Cloud DNS.
+  zone_recordsets = {
+    apps = [
+      {
+        name    = "cd.apps.${local.argoproj_domain}"
+        type    = "A"
+        ttl     = 300
+        records = ["34.127.58.181"]
+      },
+      {
+        name    = "grafana.apps.${local.argoproj_domain}"
+        type    = "A"
+        ttl     = 300
+        records = ["34.82.184.217"]
+      },
+      {
+        name    = "workflows.apps.${local.argoproj_domain}"
+        type    = "A"
+        ttl     = 300
+        records = ["34.127.58.181"]
+      },
+    ]
+  }
+}
 
-#   private_visibility_config_networks = [module.vpc.network_self_link]
+module "argoproj-dns-root" {
+  source  = "terraform-google-modules/cloud-dns/google"
+  version = "~> 5.0"
 
-#   recordsets = [for key, dns in module.argoproj-dns :
-#     {
-#       name    = key
-#       records = dns.name_servers
-#       ttl     = 300
-#       type    = "NS"
-#     }
-#   ]
-# }
+  project_id = data.google_project.project.project_id
+  type       = "public"
+  name       = "argoproj-io"
+  domain     = local.argoproj_domain
+
+  enable_logging = false
+
+  private_visibility_config_networks = [module.vpc.network_self_link]
+
+  recordsets = concat(local.argoproj_dns_delegations, local.argoproj_dns_root_records)
+}
 
 module "argoproj-dns" {
   for_each = var.zones
@@ -74,4 +129,6 @@ module "argoproj-dns" {
   force_destroy = false // Set to true to delete the zones with records
 
   private_visibility_config_networks = [module.vpc.network_self_link]
+
+  recordsets = lookup(local.zone_recordsets, each.value, [])
 }
