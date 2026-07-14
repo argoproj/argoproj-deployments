@@ -32,4 +32,4 @@ patches:
 images:
 - name: quay.io/argoproj/argocd
   newName: ghcr.io/argoproj/argo-cd/argocd
-  newTag: 3.6.0-7fe7110f
+  newTag: 3.6.0-bf8bdaa3
