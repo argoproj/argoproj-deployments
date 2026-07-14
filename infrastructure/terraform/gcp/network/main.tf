@@ -1,7 +1,3 @@
-locals {
-  argoproj_domain = "argoproj.io."
-}
-
 data "google_project" "project" {}
 
 module "vpc" {
@@ -39,6 +35,8 @@ module "cloud_router" {
 }
 
 locals {
+  argoproj_domain = "argoproj.io."
+
   # Delegation NS records for each child zone (apps/demo/dev), pointing the root
   # argoproj.io zone at the Cloud DNS name servers of the child zones.
   # The zone's own apex NS and SOA records are managed automatically by Cloud DNS.
@@ -73,31 +71,6 @@ locals {
     },
   ]
 
-  # Content records served out of each child zone, keyed by the zone key in
-  # var.zones. Zones without an entry (e.g. demo, dev) get no extra records; the
-  # zone's own apex NS/SOA are managed automatically by Cloud DNS.
-  zone_recordsets = {
-    apps = [
-      {
-        name    = "cd.apps.${local.argoproj_domain}"
-        type    = "A"
-        ttl     = 300
-        records = ["34.127.58.181"]
-      },
-      {
-        name    = "grafana.apps.${local.argoproj_domain}"
-        type    = "A"
-        ttl     = 300
-        records = ["34.82.184.217"]
-      },
-      {
-        name    = "workflows.apps.${local.argoproj_domain}"
-        type    = "A"
-        ttl     = 300
-        records = ["34.127.58.181"]
-      },
-    ]
-  }
 }
 
 module "argoproj-dns-root" {
@@ -106,7 +79,7 @@ module "argoproj-dns-root" {
 
   project_id = data.google_project.project.project_id
   type       = "public"
-  name       = "argoproj-io"
+  name       = replace(trimsuffix("${local.argoproj_domain}", "."), ".", "-")
   domain     = local.argoproj_domain
 
   enable_logging = false
@@ -130,5 +103,6 @@ module "argoproj-dns" {
 
   private_visibility_config_networks = [module.vpc.network_self_link]
 
-  recordsets = lookup(local.zone_recordsets, each.value, [])
+  # No recordsets here: records inside apps.argoproj.io are managed by
+  # external-dns (policy: sync) running in the cluster. See external-dns/values.yaml.
 }
