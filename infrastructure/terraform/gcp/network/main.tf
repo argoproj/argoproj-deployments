@@ -40,9 +40,11 @@ locals {
   # Delegation NS records for each child zone (apps/demo/dev), pointing the root
   # argoproj.io zone at the Cloud DNS name servers of the child zones.
   # The zone's own apex NS and SOA records are managed automatically by Cloud DNS.
+  # `name` is the label relative to the zone domain; the cloud-dns module appends
+  # the domain (var.domain) to it.
   argoproj_dns_delegations = [for zone, dns in module.argoproj-dns :
     {
-      name    = "${zone}.${local.argoproj_domain}"
+      name    = zone
       type    = "NS"
       ttl     = 300
       records = dns.name_servers
@@ -50,27 +52,27 @@ locals {
   ]
 
   # Content records served directly out of the root argoproj.io zone.
+  # `name` is relative to the zone domain ("" = apex); the module appends the domain.
   argoproj_dns_root_records = [
     {
-      name    = local.argoproj_domain
+      name    = ""
       type    = "A"
       ttl     = 300
       records = ["104.198.14.52"]
     },
     {
-      name    = "www.${local.argoproj_domain}"
+      name    = "www"
       type    = "A"
       ttl     = 300
       records = ["104.198.14.52"]
     },
     {
-      name    = "blog.${local.argoproj_domain}"
+      name    = "blog"
       type    = "A"
       ttl     = 300
       records = ["162.159.153.4", "162.159.152.4"]
     },
   ]
-
 }
 
 module "argoproj-dns-root" {
@@ -79,7 +81,7 @@ module "argoproj-dns-root" {
 
   project_id = data.google_project.project.project_id
   type       = "public"
-  name       = replace(trimsuffix("${local.argoproj_domain}", "."), ".", "-")
+  name       = replace(trimsuffix(local.argoproj_domain, "."), ".", "-")
   domain     = local.argoproj_domain
 
   enable_logging = false
