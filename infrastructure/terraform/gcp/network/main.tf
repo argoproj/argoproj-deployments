@@ -72,6 +72,14 @@ locals {
       ttl     = 300
       records = ["162.159.153.4", "162.159.152.4"]
     },
+    # Google domain-ownership verification (moved from the old alex-sb apex zone).
+    # Must remain as long as Google ownership of argoproj.io is required.
+    {
+      name    = ""
+      type    = "TXT"
+      ttl     = 300
+      records = ["google-site-verification=ENitAVgKBcpwjqDbs-HPY88Wo69jDxzcyuiDKOgVX58"]
+    },
   ]
 }
 
