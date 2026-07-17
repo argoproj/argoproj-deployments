@@ -1,7 +1,3 @@
-locals {
-  argoproj_domain = "argoproj.io."
-}
-
 data "google_project" "project" {}
 
 module "vpc" {
@@ -38,28 +34,62 @@ module "cloud_router" {
   region  = each.value
 }
 
-# module "argoproj-dns-root" {
-#   source  = "terraform-google-modules/cloud-dns/google"
-#   version = "~> 5.0"
+locals {
+  argoproj_domain = "argoproj.io."
 
-#   project_id = data.google_project.project.project_id
-#   type       = "public"
-#   name       = "argoproj-io"
-#   domain     = local.argoproj_domain
+  # Delegation NS records for each child zone (apps/demo/dev), pointing the root
+  # argoproj.io zone at the Cloud DNS name servers of the child zones.
+  # The zone's own apex NS and SOA records are managed automatically by Cloud DNS.
+  # `name` is the label relative to the zone domain; the cloud-dns module appends
+  # the domain (var.domain) to it.
+  argoproj_dns_delegations = [for zone, dns in module.argoproj-dns :
+    {
+      name    = zone
+      type    = "NS"
+      ttl     = 300
+      records = dns.name_servers
+    }
+  ]
 
-#   enable_logging = false
+  # Content records served directly out of the root argoproj.io zone.
+  # `name` is relative to the zone domain ("" = apex); the module appends the domain.
+  argoproj_dns_root_records = [
+    {
+      name    = ""
+      type    = "A"
+      ttl     = 300
+      records = ["104.198.14.52"]
+    },
+    {
+      name    = "www"
+      type    = "A"
+      ttl     = 300
+      records = ["104.198.14.52"]
+    },
+    {
+      name    = "blog"
+      type    = "A"
+      ttl     = 300
+      records = ["162.159.153.4", "162.159.152.4"]
+    },
+  ]
+}
 
-#   private_visibility_config_networks = [module.vpc.network_self_link]
+module "argoproj-dns-root" {
+  source  = "terraform-google-modules/cloud-dns/google"
+  version = "~> 5.0"
 
-#   recordsets = [for key, dns in module.argoproj-dns :
-#     {
-#       name    = key
-#       records = dns.name_servers
-#       ttl     = 300
-#       type    = "NS"
-#     }
-#   ]
-# }
+  project_id = data.google_project.project.project_id
+  type       = "public"
+  name       = replace(trimsuffix(local.argoproj_domain, "."), ".", "-")
+  domain     = local.argoproj_domain
+
+  enable_logging = false
+
+  private_visibility_config_networks = [module.vpc.network_self_link]
+
+  recordsets = concat(local.argoproj_dns_delegations, local.argoproj_dns_root_records)
+}
 
 module "argoproj-dns" {
   for_each = var.zones
@@ -74,4 +104,7 @@ module "argoproj-dns" {
   force_destroy = false // Set to true to delete the zones with records
 
   private_visibility_config_networks = [module.vpc.network_self_link]
+
+  # No recordsets here: records inside apps.argoproj.io are managed by
+  # external-dns (policy: sync) running in the cluster. See external-dns/values.yaml.
 }
