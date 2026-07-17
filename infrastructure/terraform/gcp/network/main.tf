@@ -80,6 +80,15 @@ locals {
       ttl     = 300
       records = ["google-site-verification=ENitAVgKBcpwjqDbs-HPY88Wo69jDxzcyuiDKOgVX58"]
     },
+    # Bluesky (bsky.app) domain-handle verification, letting us claim and verify
+    # the @argoproj.io handle on the AT Protocol network. The DID value maps the
+    # handle to our account; must remain for the handle to stay verified.
+    {
+      name    = "_atproto"
+      type    = "TXT"
+      ttl     = 300
+      records = ["did=did:plc:vfsdpszrz7vp2u2k7vwto4g7"]
+    },
   ]
 }
 
