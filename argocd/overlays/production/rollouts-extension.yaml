@@ -10,7 +10,7 @@ spec:
           image: quay.io/argoprojlabs/argocd-extension-installer:v0.0.8
           env:
             - name: EXTENSION_URL
-              value: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.7/extension.tar
+              value: https://github.com/argoproj-labs/rollout-extension/releases/download/v0.4.0/extension.tar
           volumeMounts:
             - name: extensions
               mountPath: /tmp/extensions/
