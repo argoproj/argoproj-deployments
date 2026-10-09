@@ -1,0 +1,38 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-cert
+spec:
+  secretName: grafana-tls
+  issuerRef:
+    name: prometheus-operator-issuer
+    kind: Issuer
+  commonName: grafana.apps.argoproj.io
+  dnsNames:
+    - grafana.apps.argoproj.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: alertmanager-cert
+spec:
+  secretName: alertmanager-tls
+  issuerRef:
+    name: prometheus-operator-issuer
+    kind: Issuer
+  commonName: alertmanager.apps.argoproj.io
+  dnsNames:
+    - alertmanager.apps.argoproj.io
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-cert
+spec:
+  secretName: prometheus-tls
+  issuerRef:
+    name: prometheus-operator-issuer
+    kind: Issuer
+  commonName: prometheus.apps.argoproj.io
+  dnsNames:
+    - prometheus.apps.argoproj.io

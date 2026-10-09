@@ -5,14 +5,14 @@ resources:
   - ./resources/argocd-repo-server-metrics-servicemonitor.yaml
   - ./resources/argocd-notifications-controller-metrics-servicemonitor.yaml
   - ./resources/argocd-applicationset-controller-metrics-servicemonitor.yaml
-  - ./resources/grafana-certificate.yaml
-  - ./resources/grafana-ingress.yaml
-  - ./resources/grafana-issuer.yaml
+  - ./resources/prometheus-operator-certificates.yaml
+  - ./resources/prometheus-operator-ingress.yaml
+  - ./resources/prometheus-operator-issuer.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
   labels:
-    grafana_dashboard: '1'
+    grafana_dashboard: "1"
 
 configMapGenerator:
   - name: argocd-dashboard-cm
