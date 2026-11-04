@@ -37,8 +37,8 @@ spec:
                       parameters:
                         - name: message
                     container:
-                      image: docker/whalesay:latest
-                      command: [cowsay]
+                      image: busybox:1.38.0
+                      command: [echo]
                       args: ["{{inputs.parameters.message}}"]
           parameters:
             - src:

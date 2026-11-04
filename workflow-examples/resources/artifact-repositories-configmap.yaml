@@ -1,0 +1,35 @@
+# Based on argo-workflows manifests/quick-start/base/artifact-repositories-configmap.yaml,
+# with the MinIO endpoint fully qualified. argo-server runs in the `argo` namespace and
+# reads artifacts for the UI, so the quick-start's bare `minio:9000` doesn't resolve for it.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: artifact-repositories
+  annotations:
+    workflows.argoproj.io/default-artifact-repository: default-v1
+data:
+  default-v1: |
+    archiveLogs: true
+    s3:
+      bucket: my-bucket
+      endpoint: minio.workflow-playground.svc:9000
+      insecure: true
+      accessKeySecret:
+        name: my-minio-cred
+        key: accesskey
+      secretKeySecret:
+        name: my-minio-cred
+        key: secretkey
+  my-key: |
+    archiveLogs: true
+    s3:
+      bucket: my-bucket
+      endpoint: minio.workflow-playground.svc:9000
+      insecure: true
+      accessKeySecret:
+        name: my-minio-cred
+        key: accesskey
+      secretKeySecret:
+        name: my-minio-cred
+        key: secretkey
+  empty: ""
