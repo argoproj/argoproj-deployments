@@ -3,7 +3,8 @@ kind: CronWorkflow
 metadata:
   name: artifacts
 spec:
-  schedule: '*/5 * * * *'
+  schedules:
+    - '*/5 * * * *'
   workflowSpec:
     serviceAccountName: workflow
     workflowTemplateRef:
