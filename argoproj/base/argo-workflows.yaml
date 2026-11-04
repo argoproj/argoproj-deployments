@@ -17,6 +17,9 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+      # v4+ release manifests ship full CRDs, which are too big for the
+      # client-side apply last-applied-configuration annotation.
+      - ServerSideApply=true
     automated:
       prune: true
       selfHeal: true
