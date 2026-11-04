@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: workflow-playground
 
 resources:
-  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start/base/artifact-repositories-configmap.yaml
+  - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio?ref=v4.1.6
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/manifests/quick-start/base/artifact-repositories-configmap.yaml
   - resources/auth/read-write-sa-secret.yaml
   - resources/auth/read-write-sa.yaml
   - resources/auth/user-default-login-sa-secret.yaml
@@ -23,8 +23,8 @@ resources:
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/slack/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/sendmail/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/artifacts-workflowtemplate.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/master/examples/ci-workflowtemplate.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/examples/artifacts-workflowtemplate.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/examples/ci-workflowtemplate.yaml
   - resources/workflows/artifacts-cronworkflow.yaml
   - resources/workflows/ci-cronworkflow.yaml
   - resources/workflows/coinflip-cronworkflow.yaml
