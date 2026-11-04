@@ -5,7 +5,7 @@ namespace: workflow-playground
 
 resources:
   - https://github.com/argoproj/argo-workflows/manifests/quick-start/base/minio?ref=v4.1.6
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/manifests/quick-start/base/artifact-repositories-configmap.yaml
+  - resources/artifact-repositories-configmap.yaml
   - resources/auth/read-write-sa-secret.yaml
   - resources/auth/read-write-sa.yaml
   - resources/auth/user-default-login-sa-secret.yaml
