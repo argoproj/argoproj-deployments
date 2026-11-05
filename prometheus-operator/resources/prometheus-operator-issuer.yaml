@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: grafana-issuer
+  name: prometheus-operator-issuer
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
