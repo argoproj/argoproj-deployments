@@ -6,7 +6,7 @@ metadata:
   name: mutex-alpha
 spec:
   schedules:
-    - '12,27,42,57 * * * *'
+    - '8,38 * * * *'
   workflowSpec:
     serviceAccountName: workflow
     arguments:

@@ -1,0 +1,33 @@
+# Adapted from argo-workflows v4.1.6 examples/title-and-description-with-markdown.yaml,
+# as a WorkflowTemplate so a CronWorkflow can run it.
+#
+# The workflows.argoproj.io/title and workflows.argoproj.io/description
+# annotations replace the name in UI lists, and since v3.6 can contain markdown.
+# They're set here on the template itself and, through spec.workflowMetadata,
+# on every Workflow it creates, so they show in both the template and workflow lists.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: title-and-description
+  annotations:
+    workflows.argoproj.io/title: '**Title and description**'
+    workflows.argoproj.io/description: |
+      `title` and `description` annotations with embedded markdown.
+      Docs: https://argo-workflows.readthedocs.io/en/latest/title-and-description/
+spec:
+  entrypoint: hello-world
+  serviceAccountName: workflow
+  workflowMetadata:
+    annotations:
+      # both annotations are available since v3.4.4
+      # embedded markdown is available since v3.6
+      workflows.argoproj.io/title: '**Test Title**' # defaults to `metadata.name` if not specified
+      workflows.argoproj.io/description: |
+        `This is a simple hello world example.`
+        This is an embedded link to the docs: https://argo-workflows.readthedocs.io/en/latest/title-and-description/
+  templates:
+    - name: hello-world
+      container:
+        image: busybox
+        command: [echo]
+        args: ["hello world"]

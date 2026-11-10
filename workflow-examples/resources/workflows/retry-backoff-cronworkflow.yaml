@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: retry-backoff
+spec:
+  schedules:
+    - '12,42 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    workflowTemplateRef:
+      name: retry-backoff

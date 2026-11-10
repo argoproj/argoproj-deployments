@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: container-set
+spec:
+  schedules:
+    - '16,46 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    workflowTemplateRef:
+      name: container-set

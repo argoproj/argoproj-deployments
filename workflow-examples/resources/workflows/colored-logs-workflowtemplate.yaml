@@ -1,0 +1,42 @@
+# Adapted from argo-workflows v4.1.6 examples/colored-logs.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it.
+#
+# Prints ANSI-coloured lines for about 100 seconds, to show colour in the UI's
+# log viewer. Open the logs while it's running to watch them stream.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: colored-logs
+  annotations:
+    workflows.argoproj.io/title: '**Colored logs**'
+    workflows.argoproj.io/description: |
+      Streams ANSI-coloured log lines for about 100 seconds, rendered in
+      colour by the UI's log viewer.
+spec:
+  entrypoint: print-colors
+  serviceAccountName: workflow
+  templates:
+    - name: print-colors
+      script:
+        image: python:alpine3.23
+        command: ["python"]
+        source: |
+          import time
+          import random
+
+          messages = [
+              'No Color',
+              '\x1b[30m%s\x1b[0m' % 'FG Black',
+              '\x1b[32m%s\x1b[0m' % 'FG Green',
+              '\x1b[34m%s\x1b[0m' % 'FG Blue',
+              '\x1b[36m%s\x1b[0m' % 'FG Cyan',
+              '\x1b[41m%s\x1b[0m' % 'BG Red',
+              '\x1b[43m%s\x1b[0m' % 'BG Yellow',
+              '\x1b[45m%s\x1b[0m' % 'BG Magenta',
+          ]
+          for i in range(1, 100):
+            print(random.choice(messages))
+            time.sleep(1)
+        env:
+          - name: PYTHONUNBUFFERED
+            value: '1'

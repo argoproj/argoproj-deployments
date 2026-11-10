@@ -1,0 +1,64 @@
+# Adapted from argo-workflows v4.1.6 examples/exit-handlers.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it.
+#
+# An exit handler is a template that runs at the end of the workflow whatever
+# the outcome, named in spec.onExit. The main step here always fails, so every
+# run shows the exit handler reacting to a failed workflow.
+#
+# Common uses for exit handlers:
+# - sending notifications of workflow status (e.g. e-mail/slack)
+# - posting the pass/fail status to a webhook result (e.g. github build result)
+# - cleaning up workflow artifacts
+# - resubmitting or submitting another workflow
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: exit-handlers
+  annotations:
+    workflows.argoproj.io/title: '**Exit handlers**'
+    workflows.argoproj.io/description: |
+      The main step always fails. The `onExit` handler runs anyway and
+      branches on `{{workflow.status}}`.
+spec:
+  entrypoint: intentional-fail
+  serviceAccountName: workflow
+  onExit: exit-handler
+  templates:
+    # primary workflow template
+    - name: intentional-fail
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        args: ["echo intentional failure; exit 1"]
+
+    # After the entrypoint template completes, the status of the workflow is
+    # available in {{workflow.status}}: one of Succeeded, Failed or Error.
+    - name: exit-handler
+      steps:
+        - - name: notify
+            template: send-email
+          - name: celebrate
+            template: celebrate
+            when: "{{workflow.status}} == Succeeded"
+          - name: cry
+            template: cry
+            when: "{{workflow.status}} != Succeeded"
+
+    - name: send-email
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        # {{workflow.failures}} is a JSON list of the failed nodes.
+        args: ["echo send e-mail: {{workflow.name}} {{workflow.status}} {{workflow.duration}}. Failed steps {{workflow.failures}}"]
+
+    - name: celebrate
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        args: ["echo hooray!"]
+
+    - name: cry
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        args: ["echo boohoo!"]

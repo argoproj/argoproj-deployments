@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: suspend-template-outputs
+spec:
+  schedules:
+    - '18,48 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    workflowTemplateRef:
+      name: suspend-template-outputs

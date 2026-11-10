@@ -1,0 +1,40 @@
+# Adapted from argo-workflows v4.1.6 examples/container-set-template/workspace-workflow.yaml,
+# as a WorkflowTemplate so a CronWorkflow can run it.
+#
+# A container set runs several containers in one pod. They share an emptyDir
+# workspace, which also lets a container not called "main" produce output.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: container-set
+  annotations:
+    workflows.argoproj.io/title: '**Container set**'
+    workflows.argoproj.io/description: |
+      Two containers in one pod share a workspace volume. Container `a`
+      writes a file that becomes the template's output parameter and artifact.
+spec:
+  entrypoint: main
+  serviceAccountName: workflow
+  templates:
+    - name: main
+      volumes:
+        - name: workspace
+          emptyDir: { }
+      containerSet:
+        volumeMounts:
+          - mountPath: /workspace
+            name: workspace
+        containers:
+          - name: a
+            image: argoproj/argosay:v2
+            args: [ echo, hi, /workspace/out ]
+          - name: main
+            image: argoproj/argosay:v2
+      outputs:
+        parameters:
+          - name: out
+            valueFrom:
+              path: /workspace/out
+        artifacts:
+          - name: out
+            path: /workspace/out

@@ -1,0 +1,31 @@
+# Adapted from argo-workflows v4.1.6 examples/retry-backoff.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it.
+#
+# The step fails two times in three and is retried with exponential backoff,
+# so most runs show several failed attempts before one succeeds.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: retry-backoff
+  annotations:
+    workflows.argoproj.io/title: '**Retry with backoff**'
+    workflows.argoproj.io/description: |
+      A step that fails two times in three, retried by `retryStrategy`
+      with exponential backoff.
+spec:
+  entrypoint: retry-backoff
+  serviceAccountName: workflow
+  templates:
+    - name: retry-backoff
+      retryStrategy:
+        limit: "10"
+        backoff:
+          duration: "1"       # Must be a string. Default unit is seconds. Could also be a Duration, e.g.: "2m", "6h"
+          factor: "2"
+          maxDuration: "1m"   # Must be a string. Default unit is seconds. Could also be a Duration, e.g.: "2m", "6h"
+          cap: "5"            # Must be a string. Default unit is seconds. Could also be a Duration, e.g.: "2m", "6h"
+      container:
+        image: python:alpine3.23
+        command: ["python", -c]
+        # fail with a 66% probability
+        args: ["import random; import sys; exit_code = random.choice([0, 1, 1]); sys.exit(exit_code)"]
