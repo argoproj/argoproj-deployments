@@ -29,3 +29,8 @@ resources:
   - resources/workflows/coinflip-workflowtemplate.yaml
   - resources/workflows/event-consumer-workfloweventbinding.yaml
   - resources/workflows/github-event-workflowtemplate.yaml
+  - resources/workflows/map-reduce-cronworkflow.yaml
+  - resources/workflows/map-reduce-workflowtemplate.yaml
+  - resources/workflows/mutex-alpha-cronworkflow.yaml
+  - resources/workflows/mutex-beta-cronworkflow.yaml
+  - resources/workflows/mutex-workflowtemplate.yaml
