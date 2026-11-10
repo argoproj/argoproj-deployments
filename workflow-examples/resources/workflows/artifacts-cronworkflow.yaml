@@ -4,7 +4,7 @@ metadata:
   name: artifacts
 spec:
   schedules:
-    - '*/5 * * * *'
+    - '0,15,30,45 * * * *'
   workflowSpec:
     serviceAccountName: workflow
     workflowTemplateRef:
