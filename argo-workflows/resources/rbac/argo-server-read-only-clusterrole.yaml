@@ -1,0 +1,38 @@
+# argo-server's own permissions in the managed namespace (bound by resources/argo-server-rolebinding.yaml).
+# With --auth-mode=server, requests without a token run as argo-server, so this is also what anonymous
+# visitors can do: read-only. Logged-in users act as their SSO-mapped service account instead, and
+# client-mode callers (such as the GitHub webhook) as their own token.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argo-workflows-argo-server-read-only
+rules:
+  # What the UI and API show.
+  - apiGroups: [argoproj.io]
+    resources:
+      - workflows
+      - workflowtemplates
+      - cronworkflows
+      - workfloweventbindings
+      - eventsources
+      - sensors
+    verbs: [get, list, watch]
+  - apiGroups: [""]
+    resources: [pods, pods/log]
+    verbs: [get, list, watch]
+  # The UI's event stream, and the event dispatcher recording its outcome on WorkflowEventBindings.
+  - apiGroups: [""]
+    resources: [events]
+    verbs: [get, list, watch, create, patch]
+  # SSO RBAC: finding the service account that matches a user's groups, and its token Secret.
+  - apiGroups: [""]
+    resources: [serviceaccounts]
+    verbs: [get, list, watch]
+  # SSO service account tokens, and artifact repository credentials for artifact downloads.
+  - apiGroups: [""]
+    resources: [secrets]
+    verbs: [get]
+  # The artifact-repositories ConfigMap.
+  - apiGroups: [""]
+    resources: [configmaps]
+    verbs: [get, list, watch]

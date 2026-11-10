@@ -16,4 +16,6 @@ spec:
             - workflow-playground
             - --auth-mode=sso
             - --auth-mode=client
+            # No token: read-only, as argo-server (see resources/rbac/argo-server-read-only-clusterrole.yaml)
+            - --auth-mode=server
             - --x-frame-options=SAMEORIGIN

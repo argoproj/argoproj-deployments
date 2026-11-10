@@ -10,6 +10,7 @@ resources:
   - resources/argo-workflows-certificate.yaml
   - resources/argo-workflows-issuer.yaml
   - resources/workflow-count-resourcequota.yaml
+  - resources/rbac/argo-server-read-only-clusterrole.yaml
   - resources/rbac/read-only-clusterrole.yaml
   - resources/rbac/read-only-namespaced-clusterrole.yaml
   - resources/rbac/read-write-namespaced-clusterrole.yaml

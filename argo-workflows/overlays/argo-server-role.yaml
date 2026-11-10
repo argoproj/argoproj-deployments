@@ -1,9 +1,20 @@
+# argo-server's own permissions in its own namespace (`argo`). It only reads its configuration
+# (workflow-controller-configmap) and Secrets (argo-server-sso, the webhook clients), and creates the
+# `sso` key Secret on first start. Anonymous visitors (--auth-mode=server) act as argo-server, but no
+# Argo API returns ConfigMaps or Secrets, and nothing else is granted here. Its permissions in the
+# managed namespace are in resources/rbac/argo-server-read-only-clusterrole.yaml.
 - op: replace
   path: /kind
   value: ClusterRole
 - op: replace
   path: /metadata/name
   value: argo-workflows-argo-server-role
-- op: add
-  path: /rules/5/resources/7
-  value: clusterworkflowtemplates
+- op: replace
+  path: /rules
+  value:
+    - apiGroups: [""]
+      resources: [configmaps]
+      verbs: [get, list, watch]
+    - apiGroups: [""]
+      resources: [secrets]
+      verbs: [get, create]
