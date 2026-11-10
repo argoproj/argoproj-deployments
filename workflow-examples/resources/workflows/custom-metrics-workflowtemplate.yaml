@@ -1,0 +1,100 @@
+# Adapted from argo-workflows v4.1.6 examples/custom-metrics.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it. See docs/metrics.md upstream.
+#
+# Defines custom Prometheus metrics at workflow and template level: realtime
+# duration gauges, a histogram of a random value, and a counter of the flakey
+# step's results. The flakey step fails two times in three, failing the workflow.
+#
+# The workflow-controller serves these on its metrics endpoint, prefixed
+# argo_workflows_. Nothing in this cluster scrapes it yet.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: custom-metrics
+  annotations:
+    workflows.argoproj.io/title: '**Custom metrics**'
+    workflows.argoproj.io/description: |
+      Emits custom Prometheus metrics (gauges, a histogram and a counter)
+      from the workflow and its templates.
+spec:
+  entrypoint: steps
+  serviceAccountName: workflow
+  metrics:
+    prometheus:
+      - name: duration_gauge
+        labels:
+          - key: name
+            value: workflow
+        help: "Duration gauge by name"
+        gauge:
+          realtime: true                  # This metric will be emitted in real time. For more info see: docs/metrics.md
+          value: "{{workflow.duration}}"  # Use {{workflow.duration}} in workflow-level and {{duration}} in template-level
+
+  templates:
+    - name: steps
+      metrics:
+        prometheus:
+          - name: duration_gauge
+            labels:
+              - key: name
+                value: steps
+            help: "Duration gauge by name"
+            gauge:
+              realtime: true
+              value: "{{duration}}"       # Use {{duration}} in template-level and {{workflow.duration}} in workflow-level
+      steps:
+        - - name: random-int
+            template: random-int
+        - - name: flakey
+            template: flakey
+
+    - name: random-int
+      metrics:
+        prometheus:
+          - name: random_int_step_histogram
+            help: "Value of the int emitted by random-int at step level"
+            when: "{{status}} == Succeeded"    # Only emit metric when step succeeds
+            histogram:
+              buckets:
+                - 2.01
+                - 4.01
+                - 6.01
+                - 8.01
+                - 10.01
+              value: "{{outputs.parameters.rand-int-value}}"
+          - name: duration_gauge
+            labels:
+              - key: name
+                value: random-int
+            help: "Duration gauge by name"
+            gauge:
+              realtime: true
+              value: "{{duration}}"
+      outputs:
+        parameters:
+          - name: rand-int-value
+            globalName: rand-int-value
+            valueFrom:
+              path: /tmp/rand_int.txt
+      container:
+        image: busybox
+        command: [sh, -c]
+        args: ["RAND_INT=$((1 + RANDOM % 10)); echo $RAND_INT; echo $RAND_INT > /tmp/rand_int.txt"]
+
+    - name: flakey
+      metrics:
+        prometheus:
+          - name: result_counter
+            help: "Count of step execution by result status"
+            labels:
+              - key: name
+                value: flakey
+              - key: status
+                value: "{{status}}"
+            counter:
+              value: "1"
+      container:
+        image: python:alpine3.23
+        command: ["python", -c]
+        # fail with a 66% probability
+        args: ["import random; import sys; exit_code = random.choice([0, 1, 1]); sys.exit(exit_code)"]

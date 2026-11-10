@@ -1,0 +1,54 @@
+# Adapted from argo-workflows v4.1.6 examples/suspend-template-outputs.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it.
+#
+# The "approve" step suspends the workflow until someone supplies its "message"
+# output and resumes it: from the UI, with the API's /set endpoint, or with the CLI:
+#
+#   argo node set <workflow> -p message="Hello, world!" --node-field-selector displayName=approve
+#   argo resume <workflow>
+#
+# Unlike the upstream example, the suspend times out after 3 minutes and falls
+# back to a default message, so unattended cron runs succeed instead of hitting
+# the 10-minute workflow deadline. Anonymous read-only viewers can't resume it.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: suspend-template-outputs
+  annotations:
+    workflows.argoproj.io/title: '**Suspend for approval**'
+    workflows.argoproj.io/description: |
+      `approve` waits up to 3 minutes for a signed-in user to supply a
+      message and resume, then carries on with a default message.
+spec:
+  entrypoint: suspend
+  serviceAccountName: workflow
+  templates:
+    - name: suspend
+      steps:
+        - - name: approve
+            template: approve
+        - - name: release
+            template: print-message
+            arguments:
+              parameters:
+                - name: message
+                  value: "{{steps.approve.outputs.parameters.message}}"
+
+    - name: approve
+      suspend:
+        duration: "3m"
+      outputs:
+        parameters:
+          - name: message
+            valueFrom:
+              supplied: {}
+              default: "No one approved within 3 minutes, so this is the default message."
+
+    - name: print-message
+      inputs:
+        parameters:
+          - name: message
+      container:
+        image: busybox
+        command: [echo]
+        args: ["{{inputs.parameters.message}}"]

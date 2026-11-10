@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: loops-param-result
+spec:
+  schedules:
+    - '10,40 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    workflowTemplateRef:
+      name: loops-param-result

@@ -1,0 +1,17 @@
+# Runs at the same minute as mutex-beta, so the two contend for the
+# mutex-demo lock. See mutex-workflowtemplate.yaml.
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: mutex-alpha
+spec:
+  schedules:
+    - '8,38 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    arguments:
+      parameters:
+        - name: who
+          value: alpha
+    workflowTemplateRef:
+      name: mutex

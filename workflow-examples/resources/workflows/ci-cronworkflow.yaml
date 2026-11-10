@@ -4,7 +4,7 @@ metadata:
   name: ci
 spec:
   schedules:
-    - '5,20,35,50 * * * *'
+    - '2,32 * * * *'
   workflowSpec:
     serviceAccountName: workflow
     workflowTemplateRef:

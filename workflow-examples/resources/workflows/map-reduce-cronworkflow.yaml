@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: map-reduce
+spec:
+  schedules:
+    - '6,36 * * * *'
+  workflowSpec:
+    serviceAccountName: workflow
+    workflowTemplateRef:
+      name: map-reduce

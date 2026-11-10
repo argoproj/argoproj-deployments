@@ -1,0 +1,39 @@
+# Based on argo-workflows v4.1.6 examples/synchronization-mutex-wf-level.yaml.
+#
+# The mutex-alpha and mutex-beta CronWorkflows both run this template in the same
+# minute. Both workflows take the same workflow-level mutex, so whichever is created
+# second shows as Pending ("Waiting for ... lock") in the UI until the first
+# finishes, then runs.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: mutex
+  annotations:
+    workflows.argoproj.io/title: '**Mutex**'
+    workflows.argoproj.io/description: |
+      Two CronWorkflows start this at the same minute. A workflow-level
+      `synchronization` mutex makes the second wait for the first.
+spec:
+  entrypoint: hold-lock
+  serviceAccountName: workflow
+  arguments:
+    parameters:
+      - name: who
+        value: someone
+  synchronization:
+    mutexes:
+      - name: mutex-demo
+  templates:
+    - name: hold-lock
+      inputs:
+        parameters:
+          - name: who
+            value: "{{workflow.parameters.who}}"
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        args:
+          - |
+            echo "{{inputs.parameters.who}} has the mutex-demo lock, holding it for 90s"
+            sleep 90
+            echo "{{inputs.parameters.who}} is releasing the lock"

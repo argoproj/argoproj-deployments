@@ -4,7 +4,7 @@ metadata:
   name: coinflip
 spec:
   schedules:
-    - '10,25,40,55 * * * *'
+    - '4,34 * * * *'
   workflowSpec:
     serviceAccountName: workflow
     workflowTemplateRef:

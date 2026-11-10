@@ -1,0 +1,138 @@
+# Adapted from argo-workflows v4.1.6 examples/map-reduce.yaml, as a WorkflowTemplate
+# so a CronWorkflow can run it.
+#
+# "split" writes one JSON part per map task to the artifact repository (MinIO),
+# a "map" task is fanned out per part, and "reduce" merges the results. The parts,
+# results and total are all key-only artifacts, so they can be opened in the UI.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: map-reduce
+  annotations:
+    workflows.argoproj.io/title: '**Map-reduce**'
+    workflows.argoproj.io/description: |
+      Fans out one `map` task per part with `withParam`, passing data through
+      key-only artifacts in MinIO, then merges the results in `reduce`.
+spec:
+  entrypoint: main
+  serviceAccountName: workflow
+  arguments:
+    parameters:
+      - name: numParts
+        value: "4"
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: split
+            template: split
+            arguments:
+              parameters:
+                - name: numParts
+                  value: "{{workflow.parameters.numParts}}"
+          - name: map
+            template: map
+            arguments:
+              parameters:
+                - name: partId
+                  value: '{{item}}'
+              artifacts:
+                - name: part
+                  s3:
+                    key: "{{workflow.name}}/parts/{{item}}.json"
+            depends: "split"
+            withParam: '{{tasks.split.outputs.result}}'
+          - name: reduce
+            template: reduce
+            depends: "map"
+
+    # Writes one "part file" per map task into a single directory, saved as an
+    # output artifact, then prints the list of part IDs to stdout.
+    - name: split
+      inputs:
+        parameters:
+          - name: numParts
+      script:
+        image: python:alpine3.23
+        command:
+          - python
+        source: |
+          import json
+          import os
+          import sys
+          os.mkdir("/mnt/out")
+          partIds = list(map(lambda x: str(x), range({{inputs.parameters.numParts}})))
+          for i, partId in enumerate(partIds, start=1):
+            with open("/mnt/out/" + partId + ".json", "w") as f:
+              json.dump({"foo": i}, f)
+          json.dump(partIds, sys.stdout)
+      outputs:
+        artifacts:
+          - name: parts
+            path: /mnt/out
+            archive:
+              none: { }
+            s3:
+              key: "{{workflow.name}}/parts/"
+
+    # Reads its own part from /mnt/in/part.json and writes its result into a
+    # shared "results directory".
+    - name: map
+      inputs:
+        parameters:
+          - name: partId
+        artifacts:
+          - name: part
+            path: /mnt/in/part.json
+      script:
+        image: python:alpine3.23
+        command:
+          - python
+        source: |
+          import json
+          import os
+          os.mkdir("/mnt/out")
+          with open("/mnt/in/part.json") as f:
+            part = json.load(f)
+          with open("/mnt/out/part.json", "w") as f:
+            json.dump({"bar": part["foo"] * 2}, f)
+      outputs:
+        artifacts:
+          - name: part
+            path: /mnt/out/part.json
+            archive:
+              none: { }
+            s3:
+              key: "{{workflow.name}}/results/{{inputs.parameters.partId}}.json"
+
+    # Reads the whole results directory and writes a single total.
+    - name: reduce
+      inputs:
+        artifacts:
+          - name: results
+            path: /mnt/in
+            s3:
+              key: "{{workflow.name}}/results"
+      script:
+        image: python:alpine3.23
+        command:
+          - python
+        source: |
+          import json
+          import os
+          total = 0
+          os.mkdir("/mnt/out")
+          for name in os.listdir("/mnt/in"):
+            with open("/mnt/in/" + name) as f:
+              total = total + json.load(f)["bar"]
+          print("total:", total)
+          with open("/mnt/out/total.json", "w") as f:
+            json.dump({"total": total}, f)
+      outputs:
+        artifacts:
+          - name: total
+            path: /mnt/out/total.json
+            archive:
+              none: { }
+            s3:
+              key: "{{workflow.name}}/total.json"

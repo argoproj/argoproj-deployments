@@ -1,0 +1,47 @@
+# Adapted from argo-workflows v4.1.6 examples/loops-param-result.yaml, as a
+# WorkflowTemplate so a CronWorkflow can run it.
+#
+# A generator step prints a JSON list, which withParam expands into one
+# parallel step per item.
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: loops-param-result
+  annotations:
+    workflows.argoproj.io/title: '**Loops with withParam**'
+    workflows.argoproj.io/description: |
+      A generator step's JSON output is expanded by `withParam` into
+      parallel steps, one per item.
+spec:
+  entrypoint: loop-param-result-example
+  serviceAccountName: workflow
+  templates:
+    - name: loop-param-result-example
+      steps:
+        - - name: generate
+            template: gen-number-list
+        - - name: sleep
+            template: sleep-n-sec
+            arguments:
+              parameters:
+                - name: seconds
+                  value: "{{item}}"
+            withParam: "{{steps.generate.outputs.result}}"
+
+    - name: gen-number-list
+      script:
+        image: python:alpine3.23
+        command: [python]
+        source: |
+          import json
+          import sys
+          json.dump([i for i in range(20, 31)], sys.stdout)
+
+    - name: sleep-n-sec
+      inputs:
+        parameters:
+          - name: seconds
+      container:
+        image: alpine:3.23
+        command: [sh, -c]
+        args: ["echo sleeping for {{inputs.parameters.seconds}} seconds; sleep {{inputs.parameters.seconds}}; echo done"]
