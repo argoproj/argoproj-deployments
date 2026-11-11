@@ -22,7 +22,9 @@ resources:
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/buildkit/manifests.yaml
   - https://raw.githubusercontent.com/argoproj-labs/argo-workflows-catalog/master/templates/distro/manifests.yaml
   - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/examples/artifacts-workflowtemplate.yaml
-  - https://raw.githubusercontent.com/argoproj/argo-workflows/v4.1.6/examples/ci-workflowtemplate.yaml
+  # Pinned to the commit of argoproj/argo-workflows#17437, which fixes this example for current Go,
+  # until a release includes it. Then go back to a release tag, like the line above.
+  - https://raw.githubusercontent.com/argoproj/argo-workflows/621e9dd4ad2983c57d1e8317c6bccaab6e168961/examples/ci-workflowtemplate.yaml
   - resources/workflows/artifacts-cronworkflow.yaml
   - resources/workflows/ci-cronworkflow.yaml
   - resources/workflows/coinflip-cronworkflow.yaml
