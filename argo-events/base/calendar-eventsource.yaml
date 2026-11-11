@@ -5,4 +5,4 @@ metadata:
 spec:
   calendar:
     example-with-interval:
-      interval: 120s
+      interval: 10m
