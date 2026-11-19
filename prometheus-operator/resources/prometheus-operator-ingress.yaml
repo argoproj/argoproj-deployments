@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus-operator-ingress
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    ingress.kubernetes.io/app-root: "/"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - grafana.apps.argoproj.io
+      secretName: grafana-tls
+    - hosts:
+        - alertmanager.apps.argoproj.io
+      secretName: alertmanager-tls
+    - hosts:
+        - prometheus.apps.argoproj.io
+      secretName: prometheus-tls
+  rules:
+    - host: grafana.apps.argoproj.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prometheus-operator-grafana
+                port:
+                  number: 80
+    - host: alertmanager.apps.argoproj.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prometheus-operator-kube-p-alertmanager
+                port:
+                  name: http-web
+    - host: prometheus.apps.argoproj.io
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prometheus-operator-kube-p-prometheus
+                port:
+                  name: http-web
