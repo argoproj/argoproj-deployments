@@ -72,13 +72,22 @@ locals {
       ttl     = 300
       records = ["162.159.153.4", "162.159.152.4"]
     },
-    # Google domain-ownership verification (moved from the old alex-sb apex zone).
-    # Must remain as long as Google ownership of argoproj.io is required.
+    # Apex TXT records. Cloud DNS allows one TXT record set per name, so every
+    # apex verification value goes in this one list.
+    # - google-site-verification: Google domain-ownership verification (moved from
+    #   the old alex-sb apex zone). Must remain as long as Google ownership of
+    #   argoproj.io is required.
+    # - gm5bkxapiq: Sonatype Central Portal verification of the io.argoproj Maven
+    #   namespace, used to publish the Argo Workflows Java SDK to Maven Central.
+    #   Can be removed once the namespace is verified.
     {
-      name    = ""
-      type    = "TXT"
-      ttl     = 300
-      records = ["google-site-verification=ENitAVgKBcpwjqDbs-HPY88Wo69jDxzcyuiDKOgVX58"]
+      name = ""
+      type = "TXT"
+      ttl  = 300
+      records = [
+        "google-site-verification=ENitAVgKBcpwjqDbs-HPY88Wo69jDxzcyuiDKOgVX58",
+        "gm5bkxapiq",
+      ]
     },
     # Bluesky (bsky.app) domain-handle verification, letting us claim and verify
     # the @argoproj.io handle on the AT Protocol network. The DID value maps the
